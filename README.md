@@ -1,119 +1,68 @@
-# Aqib Habib — Aerospace Portfolio Website
+# Aqib Habib — Portfolio
 
-A premium static portfolio website for UAV, eVTOL, flight-control, autonomy, research, and coding projects.
+Personal portfolio site: flight control, state estimation, and fault detection for unmanned aircraft.
 
-## What is included
+**Live:** `https://aqib-habib.github.io` (after the deploy step below)
 
-- `index.html` — main website
-- `styles.css` — responsive aerospace-style visual design
-- `script.js` — interactive aircraft project selector and clickable component highlights
-- Fully static: no build system required
-- Mobile-responsive layout
-- Interactive project case studies
-- Thesis/research section
-- Code/simulation project section
-- Contact section
+Single self-contained `index.html` — no build step, no dependencies, no framework. Custom SVG graphics throughout, and a live observer-based fault-detection monitor in the hero that demonstrates the core of the thesis.
 
-## How to preview locally
+---
 
-Open `index.html` directly in your browser.
+## Deploy to GitHub Pages (5 minutes)
 
-Or run a local server:
+You have two options. **Option A** gives you the cleanest URL.
 
-```bash
-python -m http.server 8000
-```
+### Option A — user site at `aqib-habib.github.io`
+1. Create a new public repo named **exactly** `Aqib-Habib.github.io`.
+2. Add `index.html` (and `README.md`) to the repo root and commit.
+3. Go to **Settings → Pages**. Under *Build and deployment → Source*, choose **Deploy from a branch**, branch **main**, folder **/ (root)**. Save.
+4. Wait ~1 minute. The site is live at `https://aqib-habib.github.io`.
 
-Then visit:
+### Option B — project site in any repo
+1. Put `index.html` in the repo root.
+2. **Settings → Pages → Deploy from a branch → main → /(root)**.
+3. Live at `https://aqib-habib.github.io/<repo-name>/`.
 
-```text
-http://localhost:8000
-```
+> Tip: from the command line —
+> ```bash
+> git init
+> git add index.html README.md
+> git commit -m "Portfolio"
+> git branch -M main
+> git remote add origin https://github.com/Aqib-Habib/Aqib-Habib.github.io.git
+> git push -u origin main
+> ```
 
-## How to customize
+---
 
-### 1. Replace placeholder text
+## Customize
 
-Open `index.html` and edit:
+Everything lives in `index.html`. The pieces you'll most likely touch:
 
-- Hero headline
-- About/summary text
-- Research cards
-- Experience section
-- Contact links
+| What | Where to look |
+|---|---|
+| **Project repo links** | Search for `TODO` and for `github.com/Aqib-Habib` inside the project cards — swap in the exact repo URLs once they're public. |
+| **Your own images** | Each project card has a `.thumb` block containing an SVG. To use a photo/render instead, replace the `<svg>…</svg>` with `<img src="assets/your-image.jpg" alt="…" style="width:100%;height:100%;object-fit:cover">` and drop the file in an `assets/` folder. |
+| **Add a headshot** | Optional. Easiest spot is the hero — replace the telemetry `<div class="panel">…</div>` with an image, or add an "About" section. (I'd keep the telemetry panel — it's the strongest part.) |
+| **Colors** | The `:root` block at the top of `<style>`. `--signal` is the cyan accent, `--alert` the amber fault color. |
+| **Fonts** | Space Grotesk (headings), IBM Plex Sans (body), IBM Plex Mono (data) — loaded from Google Fonts in `<head>`. |
+| **Copy** | All text is plain HTML — edit in place. |
 
-### 2. Edit aircraft project data
+### Custom domain (optional)
+Buy a domain, add a file named `CNAME` to the repo root containing just your domain (e.g. `aqibhabib.com`), then point a DNS `CNAME`/`A` record at GitHub Pages per the [docs](https://docs.github.com/pages/configuring-a-custom-domain-for-your-github-pages-site).
 
-Open `script.js` and edit the `projects` array.
+---
 
-Each project has:
+## What's inside
 
-```js
-{
-  id: "fixed-wing-evtol",
-  title: "Fixed-Wing eVTOL UAV",
-  category: "Bachelor Thesis / UAV Prototype",
-  summary: "...",
-  meta: ["eVTOL", "Airframe", "Pixhawk"],
-  components: [ ... ]
-}
-```
+- **Hero** — live residual-monitor demo (HTML canvas): residual sits at baseline, an actuator fault is injected, the trace crosses the threshold, and the detector flips to *FAULT DETECTED*.
+- **Selected work** — six projects, each with a bespoke SVG thumbnail (FDI residual, ROS 2 trajectory, INDI step response, eVTOL airframe, FEA wing, octacopter).
+- **Research** — thesis summary + the four observer schemes (Luenberger / Thau / EKF / UKF).
+- **Experience** — timeline from TAI structures to FSD flight systems.
+- **Skills, certifications, contact.**
 
-### 3. Replace LinkedIn/GitHub links
+Accessibility: keyboard focus styles, skip link, `prefers-reduced-motion` respected (the animation freezes to a static frame), responsive to mobile.
 
-In `index.html`, search for:
+---
 
-```html
-https://www.linkedin.com/
-https://github.com/
-```
-
-Replace these with your real profile links.
-
-### 4. Add your CV
-
-Create a folder named `cv` or use the existing `docs` folder, add your PDF, then link it from the hero/contact section:
-
-```html
-<a class="btn secondary" href="docs/Aqib_Habib_CV.pdf" target="_blank">Download CV</a>
-```
-
-## Hosting options
-
-### Option A: GitHub Pages
-
-1. Create a new GitHub repository, for example `aqib-portfolio`.
-2. Upload all files from this folder.
-3. Go to repository `Settings` → `Pages`.
-4. Choose `Deploy from branch`.
-5. Select the `main` branch and root folder.
-6. Save.
-7. GitHub will provide a public website URL.
-
-### Option B: Netlify
-
-1. Go to Netlify.
-2. Drag and drop this folder into Netlify Drop.
-3. Netlify will instantly host it.
-4. Later, connect the GitHub repository for automatic deployments.
-
-### Option C: Vercel
-
-1. Push this folder to GitHub.
-2. Import the repository in Vercel.
-3. Set framework preset to `Other` or static site.
-4. Deploy.
-5. Add a custom domain such as `aqibhabib.com`.
-
-## Recommended next upgrades
-
-- Replace stylized aircraft drawings with your own public-safe renders.
-- Add project-specific pages for each aircraft.
-- Add demo videos/GIFs from MATLAB, Simulink, RViz, Unity, PX4, or Gazebo.
-- Add a downloadable thesis PDF if permitted.
-- Add GitHub links to public repositories.
-- Convert to Next.js later if you want blog posts, MDX case studies, and advanced SEO.
-
-## Public-safety note for aerospace work
-
-Do not upload proprietary CAD, company drawings, dimensions, internal test results, or confidential aircraft details. Use generic diagrams, public-safe summaries, and self-created visuals.
+© Aqib Habib · Munich
