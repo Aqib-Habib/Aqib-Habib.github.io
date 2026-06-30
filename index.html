@@ -180,8 +180,32 @@ section{padding:90px 0;border-top:1px solid var(--line-soft)}
   position:relative;
 }
 .card:hover{transform:translateY(-4px);border-color:var(--signal-dim);box-shadow:0 26px 60px -36px rgba(0,0,0,.85)}
-.card .thumb{height:188px;border-bottom:1px solid var(--line-soft);position:relative;background:#0a131e;overflow:hidden}
-.card .thumb svg{position:absolute;inset:0;width:100%;height:100%}
+
+.card .thumb svg{position:absolute;inset:0;width:100%;height:100%;background:#0a1119;display:block}
+.card .thumb{height:198px;position:relative;isolation:isolate;overflow:hidden;border-bottom:1px solid var(--line-soft);background:#0a1119}
+.card .thumb::after{content:"";position:absolute;inset:0;background:linear-gradient(120deg,transparent 0%,rgba(255,255,255,.05) 45%,transparent 55%);transform:translateX(-120%);animation:thumbSheen 10s ease-in-out infinite;pointer-events:none}
+.card .thumb .panel-box{fill:rgba(8,16,26,.52);stroke:#20354c;stroke-width:1}
+.card .thumb .line-soft{stroke:#173149;stroke-width:1}
+.card .thumb .line-sig{stroke:#45E3B8;stroke-width:2.5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.card .thumb .line-blue{stroke:#5B8DEF;stroke-width:2.1;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.card .thumb .line-alert{stroke:#FFB454;stroke-width:1.6;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.card .thumb .dash{stroke-dasharray:6 7;animation:dashFlow 8s linear infinite}
+.card .thumb .dash-slow{stroke-dasharray:4 8;animation:dashFlow 12s linear infinite}
+.card .thumb .node{fill:#0e1c2a;stroke:#45E3B8;stroke-width:1.6}
+.card .thumb .label{fill:#94a7c1;font-family:"IBM Plex Mono";font-size:10px;letter-spacing:.08em}
+.card .thumb .label-strong{fill:#EAF0F8;font-family:"IBM Plex Mono";font-size:10px;letter-spacing:.08em}
+.card .thumb .glow-fill{filter:drop-shadow(0 0 10px rgba(69,227,184,.28))}
+.card .thumb .pulse-dot{animation:pulseDot 2.7s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.card .thumb .spin{animation:rotorSpin 4s linear infinite;transform-box:fill-box;transform-origin:center}
+.card .thumb .float{animation:thumbFloat 5s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+.card .thumb .scan{animation:scanPulse 4.2s ease-in-out infinite}
+@keyframes thumbSheen{0%,18%,100%{transform:translateX(-120%)}26%,34%{transform:translateX(120%)}}
+@keyframes dashFlow{to{stroke-dashoffset:-120}}
+@keyframes pulseDot{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.22);opacity:.72}}
+@keyframes rotorSpin{to{transform:rotate(360deg)}}
+@keyframes thumbFloat{0%,100%{translate:0 0}50%{translate:0 -4px}}
+@keyframes scanPulse{0%,100%{opacity:.35}50%{opacity:.9}}
+@media (prefers-reduced-motion: reduce){.card .thumb::after,.card .thumb .dash,.card .thumb .dash-slow,.card .thumb .pulse-dot,.card .thumb .spin,.card .thumb .float,.card .thumb .scan{animation:none}}
 .card-body{padding:22px 22px 24px;display:flex;flex-direction:column;gap:12px;flex:1}
 .kicker{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.16em;color:var(--signal-dim);text-transform:uppercase;display:flex;justify-content:space-between}
 .kicker .yr{color:var(--muted-2)}
@@ -224,6 +248,278 @@ section{padding:90px 0;border-top:1px solid var(--line-soft)}
 .tl-where ul li{margin-bottom:5px}
 .tl-where ul li::marker{color:var(--signal-dim)}
 
+.exp-groups{
+  display:grid;
+  gap:28px;
+}
+.exp-group{
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  padding:24px;
+  background:
+    radial-gradient(300px 150px at 95% 0%, rgba(69,227,184,.06), transparent 62%),
+    linear-gradient(180deg,var(--ink-2),var(--ink-1));
+  position:relative;
+  overflow:hidden;
+}
+.exp-group::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:2px;
+  background:linear-gradient(90deg,var(--signal),transparent 78%);
+  opacity:.55;
+}
+.exp-group.student-research::before{
+  background:linear-gradient(90deg,var(--blue),var(--signal),transparent 82%);
+}
+.exp-group-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  gap:18px;
+  padding-bottom:18px;
+  border-bottom:1px solid var(--line-soft);
+}
+.exp-group-title{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+.exp-group-icon{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  display:grid;
+  place-items:center;
+  color:var(--signal);
+  background:rgba(69,227,184,.045);
+  flex:0 0 auto;
+}
+.exp-group-icon svg{width:20px;height:20px}
+.exp-group-head h3{
+  font-size:22px;
+  margin:0;
+}
+.exp-group-head p{
+  color:var(--muted);
+  font-size:14px;
+  margin:6px 0 0;
+  max-width:46em;
+}
+.exp-group-tag{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted-2);
+  white-space:nowrap;
+  padding-top:5px;
+}
+.exp-group .timeline{
+  margin-top:0;
+}
+.exp-group .tl-item{
+  padding:24px 0;
+}
+.exp-group .tl-item:last-child{
+  padding-bottom:0;
+}
+.exp-group .tl-item:first-child{
+  border-top:none;
+}
+@media (max-width:760px){
+  .exp-group{padding:20px}
+  .exp-group-head{flex-direction:column}
+  .exp-group-tag{white-space:normal}
+}
+
+/* ---------------- EDUCATION ---------------- */
+.education-grid{
+  display:grid;
+  grid-template-columns:1.1fr .9fr;
+  gap:18px;
+  align-items:stretch;
+}
+.edu-card{
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  padding:22px;
+  background:
+    radial-gradient(260px 120px at 85% 0%, rgba(91,141,239,.08), transparent 62%),
+    linear-gradient(180deg,var(--ink-2),var(--ink-1));
+  position:relative;
+  overflow:hidden;
+}
+.edu-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:2px;
+  background:linear-gradient(90deg,var(--signal),transparent 75%);
+  opacity:.55;
+}
+.edu-card.featured{
+  grid-row:span 2;
+  background:
+    radial-gradient(320px 160px at 75% 0%, rgba(69,227,184,.10), transparent 62%),
+    linear-gradient(180deg,var(--ink-2),var(--ink-1));
+}
+.edu-top{display:flex;gap:16px;align-items:flex-start}
+.edu-icon{
+  width:42px;height:42px;border-radius:12px;border:1px solid var(--line);
+  display:grid;place-items:center;flex:0 0 auto;color:var(--signal);
+  background:rgba(69,227,184,.045);
+}
+.edu-icon svg{width:22px;height:22px}
+.edu-period{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;
+  letter-spacing:.13em;
+  color:var(--signal-dim);
+  text-transform:uppercase;
+  margin-bottom:7px;
+}
+.edu-card h3{font-size:20px;margin:0}
+.edu-degree{color:var(--text);font-size:14.5px;margin:7px 0 0;font-weight:400}
+.edu-focus{color:var(--muted);font-size:14.5px;margin:16px 0 0}
+.edu-highlights{margin:18px 0 0;padding-left:18px;color:var(--muted);font-size:14px}
+.edu-highlights li{margin-bottom:7px}
+.edu-highlights li::marker{color:var(--signal-dim)}
+.edu-badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.edu-badges span{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11.5px;
+  color:var(--muted);
+  border:1px solid var(--line-soft);
+  border-radius:999px;
+  padding:5px 9px;
+  background:rgba(255,255,255,.014);
+}
+.edu-card.compact .edu-top{gap:14px}
+.edu-card.compact h3{font-size:17px}
+.edu-card.compact .edu-icon{width:36px;height:36px;border-radius:10px}
+.edu-card.compact .edu-icon svg{width:19px;height:19px}
+@media (max-width:900px){
+  .education-grid{grid-template-columns:1fr}
+  .edu-card.featured{grid-row:auto}
+}
+
+
+/* ---------------- ACHIEVEMENTS ---------------- */
+.achievements-grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+}
+.achievement-card{
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  padding:20px;
+  background:
+    radial-gradient(220px 100px at 80% 0%, rgba(255,180,84,.075), transparent 62%),
+    linear-gradient(180deg,var(--ink-2),var(--ink-1));
+  position:relative;
+  overflow:hidden;
+  min-height:178px;
+}
+.achievement-card::before{
+  content:"";
+  position:absolute;
+  inset:0 0 auto 0;
+  height:2px;
+  background:linear-gradient(90deg,var(--alert),transparent 78%);
+  opacity:.58;
+}
+.achievement-top{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px;
+}
+.achievement-icon{
+  width:38px;
+  height:38px;
+  border-radius:12px;
+  border:1px solid var(--line);
+  display:grid;
+  place-items:center;
+  color:var(--alert);
+  background:rgba(255,180,84,.055);
+  flex:0 0 auto;
+}
+.achievement-icon svg{width:20px;height:20px}
+.achievement-card h3{font-size:17px;margin:0}
+.achievement-meta{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;
+  letter-spacing:.12em;
+  color:var(--signal-dim);
+  text-transform:uppercase;
+  margin:4px 0 0;
+}
+.achievement-card p{
+  color:var(--muted);
+  font-size:14px;
+  margin:12px 0 0;
+}
+.achievement-card strong{color:var(--text);font-weight:500}
+
+
+/* ---------------- DOCUMENT / EVIDENCE LINKS ---------------- */
+.evidence-links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:14px;
+}
+.evidence-link{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  border:1px solid var(--line-soft);
+  border-radius:999px;
+  padding:7px 11px;
+  color:var(--muted);
+  background:rgba(255,255,255,.016);
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11.5px;
+  letter-spacing:.03em;
+  transition:color .2s,border-color .2s,background .2s,transform .2s;
+}
+.evidence-link::before{
+  content:"↗";
+  color:var(--signal-dim);
+  font-size:12px;
+}
+.evidence-link:hover{
+  color:var(--signal);
+  border-color:var(--signal-dim);
+  background:rgba(69,227,184,.055);
+  transform:translateY(-1px);
+}
+.document-hub{
+  margin-top:26px;
+  border:1px solid var(--line);
+  border-radius:var(--r);
+  padding:20px 22px;
+  background:
+    radial-gradient(260px 120px at 90% 0%, rgba(69,227,184,.08), transparent 62%),
+    linear-gradient(180deg,var(--ink-2),var(--ink-1));
+}
+.document-hub h3{
+  font-size:18px;
+  margin:0;
+}
+.document-hub p{
+  color:var(--muted);
+  font-size:14px;
+  margin:8px 0 0;
+}
+@media (max-width:900px){.achievements-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:620px){.achievements-grid{grid-template-columns:1fr}}
+
 /* ---------------- SKILLS ---------------- */
 .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .skill-col{border:1px solid var(--line);border-radius:var(--r);padding:22px;background:linear-gradient(180deg,var(--ink-2),var(--ink-1))}
@@ -233,6 +529,80 @@ section{padding:90px 0;border-top:1px solid var(--line-soft)}
 
 .creds{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
 .creds .c{font-family:"IBM Plex Mono";font-size:12px;color:var(--muted);border:1px dashed var(--line);border-radius:8px;padding:7px 12px}
+
+
+/* ---------------- REFERENCES ---------------- */
+.references-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:14px;
+  margin-top:18px;
+}
+.reference-card{
+  border:1px solid var(--line);
+  border-radius:12px;
+  padding:18px 20px;
+  background:linear-gradient(180deg,var(--ink-2),var(--ink-1));
+}
+.reference-card h4{
+  font-family:"Space Grotesk",sans-serif;
+  font-size:16px;
+  font-weight:600;
+  margin:0 0 4px;
+  color:var(--text);
+}
+.reference-role{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:12px;
+  color:var(--signal-dim);
+  margin:0 0 4px;
+}
+.reference-company{
+  color:var(--muted);
+  font-size:13.5px;
+  margin:0 0 10px;
+}
+.reference-contact{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+.reference-action{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:7px;
+  min-width:92px;
+  border:1px solid var(--line-soft);
+  border-radius:10px;
+  padding:8px 10px;
+  background:rgba(255,255,255,.018);
+  color:var(--muted);
+  font-family:"IBM Plex Mono",monospace;
+  font-size:12px;
+  transition:color .2s, border-color .2s, transform .2s, background .2s;
+}
+.reference-action svg{
+  width:15px;
+  height:15px;
+  flex:0 0 auto;
+}
+.reference-action:hover{
+  color:var(--signal);
+  border-color:var(--signal-dim);
+  background:rgba(69,227,184,.055);
+  transform:translateY(-1px);
+}
+.reference-action.is-disabled{
+  opacity:.45;
+  pointer-events:none;
+  cursor:not-allowed;
+}
+
+@media (max-width:760px){
+  .references-grid{grid-template-columns:1fr}
+}
 
 /* ---------------- CONTACT ---------------- */
 .contact{text-align:center}
@@ -287,12 +657,15 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
   <div class="wrap nav-inner">
     <a class="brand" href="#top" aria-label="Aqib Habib home">
       <span class="mark"><span class="dot"></span></span>
-      <span>Aqib Habib<small>FLIGHT CONTROLS - UAVs - STATE ESTIMATION - MECHANICAL DESIGN </small></span>
+      <span>Aqib Habib</span>
+      <!-- <span>Aqib Habib<small>CONTROL SYSTEMS - UAVs - MECHANICAL DESIGN </small></span> -->
     </a>
     <nav class="nav-links" id="navlinks" aria-label="Primary">
-      <a href="#work">Work</a>
+      <a href="#work">Selected Projects</a>
       <a href="#research">Research</a>
       <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#achievements">Achievements</a>
       <a href="#skills">Skills</a>
       <a class="nav-cta" href="#contact">Get in Touch →</a>
     </nav>
@@ -309,8 +682,9 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
   <div class="wrap">
     <div class="hero-grid">
       <div>
-        <span class="eyebrow">Institute of Flight System Dynamics · TU Munich</span>
-        <h1>Control, Estimation, Fault Detection &amp; Mechanical Design for Unmanned Vehicles.</h1>
+        <span class="eyebrow">Technical University of Munich</span>
+        <!-- <span class="eyebrow">Institute of Flight System Dynamics · TU Munich</span> -->
+        <h1>Control Systems, &amp; Mechanical Design for Unmanned Vehicles.</h1>
         <p class="lede">
           I'm an aerospace engineer finishing my M.Sc. at TU Munich. I design the <b>control loops</b> that keep a vehicle stable, the <b>estimators</b> that tell it where it is, and the <b>fault monitors</b> that catch a failing actuator before it brings the UAV down. My work also connects deeply with <b>mechanical design</b> and <b>airframe structures</b>, from aerodynamic surfaces and lightweight composite assemblies to manufacturable UAV architectures that balance performance, reliability, and structural integrity.
 
@@ -351,13 +725,13 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
   </div>
 
   <!-- marquee -->
-  <div class="strip" aria-hidden="true">
+  <!-- <div class="strip" aria-hidden="true">
     <div class="wrap"><div class="strip-inner"><div class="strip-track" id="track">
       <span>Control Systems</span>
       <span>State Estimation</span>
-      <span>ROS 2 · <b>C++</b></span><span>MATLAB / Simulink</span><span>Mechanical Developement</span>
+      <span>ROS 2 · <b>C++</b></span><span>MATLAB / Simulink</span><span>Mechanical Development</span>
     </div></div></div>
-  </div>
+  </div> -->
 </section>
 
 <!-- ===================== WORK ===================== -->
@@ -365,11 +739,11 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
-        <span class="eyebrow">Selected work</span>
-        <h2>Things I've designed, modelled and flown.</h2>
-        <p>A mix of Research, Autonomy Software and Mechanical Engineering — each one built end to end, not just specified on paper.</p>
+        <span class="eyebrow">Selected Projects</span>
+        <h2>Things I've Designed, Modelled and Flown.</h2>
+        <p>A mix of research, autonomy software and mechanical engineering.</p>
       </div>
-      <div class="tag">TOP PROJECTS · 2021–2026</div>
+      <div class="tag">TOP PROJECTS · 2019–2026</div>
     </div>
 
     <div class="work-grid">
@@ -377,16 +751,18 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
       <!-- 1: FDI -->
       <article class="card reveal">
         <div class="thumb">
-          <svg viewBox="0 0 520 188" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <defs><linearGradient id="g1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0d1a27"/><stop offset="1" stop-color="#0a131e"/></linearGradient></defs>
-            <rect width="520" height="188" fill="url(#g1)"/>
-            <g stroke="#1a2b3f" stroke-width="1"><line x1="0" y1="47" x2="520" y2="47"/><line x1="0" y1="94" x2="520" y2="94"/><line x1="0" y1="141" x2="520" y2="141"/></g>
-            <line x1="40" y1="94" x2="480" y2="94" stroke="#FFB454" stroke-width="1.2" stroke-dasharray="5 5" opacity=".7"/>
-            <path d="M30 120 L70 118 L100 122 L130 117 L160 121 L185 119 L205 70 L225 40 L250 64 L280 96 L320 112 L360 116 L400 119 L440 118 L490 120"
-              fill="none" stroke="#45E3B8" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>
-            <circle cx="225" cy="40" r="4.5" fill="#FFB454"/><circle cx="225" cy="40" r="9" fill="none" stroke="#FFB454" stroke-width="1.2" opacity=".5"/>
-            <text x="232" y="34" font-family="IBM Plex Mono" font-size="10" fill="#FFB454">fault</text>
-          </svg>
+          <svg viewBox="0 0 520 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <defs><linearGradient id="fdiTrace" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#45E3B8"/><stop offset="1" stop-color="#9ffff1"/></linearGradient></defs>
+  <text x="28" y="30" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#E7EEF8">OBSERVER · RESIDUAL MONITOR</text>
+  <g stroke="#1b3148" stroke-width="1" opacity=".7"><line x1="28" y1="64" x2="492" y2="64"/><line x1="28" y1="98" x2="492" y2="98"/><line x1="28" y1="132" x2="492" y2="132"/><line x1="28" y1="166" x2="492" y2="166"/></g>
+  <line x1="28" y1="92" x2="492" y2="92" stroke="#FFB454" stroke-width="1.4" stroke-dasharray="6 7" opacity=".85" class="dash-slow"/>
+  <text x="424" y="86" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">threshold</text>
+  <path d="M28 158 C70 156 96 159 128 154 C158 150 176 158 204 153 C224 150 236 156 252 120 C262 98 270 58 288 56 C304 54 314 92 330 122 C350 156 384 156 416 153 C446 150 470 156 492 155" fill="none" stroke="url(#fdiTrace)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="glow-fill"/>
+  <circle cx="270" cy="92" r="4.5" fill="#FFB454" class="pulse-dot"/>
+  <circle cx="270" cy="92" r="11" fill="none" stroke="#FFB454" stroke-width="1.2" opacity=".55" class="pulse-dot"/>
+  <text x="276" y="50" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">fault</text>
+  
+</svg>
         </div>
         <div class="card-body">
           <div class="kicker"><span>Research · Fault Detection and Isolation</span><span class="yr">2025–26</span></div>
@@ -394,7 +770,6 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <p>Model-based fault detection &amp; diagnosis for a quadrotor across nominal, faulty and uncertain conditions. Four observer schemes generate residuals from analytical redundancy between measured and estimated states; partial and total loss-of-effectiveness faults are caught with high sensitivity and low false-alarm rate.</p>
           <div class="stack"><b>Luenberger</b><b>Thau</b><b>EKF</b><b>UKF</b><b>Simulink</b><b>Multirotor</b></div>
           <div class="card-links">
-            <!-- TODO: replace with the FDI repo when public -->
             <a class="muted" href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=S0-50WsAAAAJ&citation_for_view=S0-50WsAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 11-6-11-6zm0 8.7L5.2 8 12 4.3 18.8 8 12 11.7z"/><path d="M5 11.5V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-4.5l-7 3.8-7-3.8z"/><path d="M21 10.5v5h2v-6.1l-2 1.1z"/></svg>
               Paper
@@ -406,20 +781,19 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
       <!-- 2: ROS2 autonomy -->
       <article class="card reveal">
         <div class="thumb">
-          <svg viewBox="0 0 520 188" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <rect width="520" height="188" fill="#0a131e"/>
-            <g stroke="#16273a" stroke-width="1"><line x1="0" y1="63" x2="520" y2="63"/><line x1="0" y1="126" x2="520" y2="126"/></g>
-            <path d="M20 158 C110 158 130 40 230 40 C320 40 340 150 430 150 C470 150 490 120 500 96"
-              fill="none" stroke="#5B8DEF" stroke-width="2.2" stroke-dasharray="2 6" opacity=".8"/>
-            <path d="M20 158 C110 158 130 40 230 40 C320 40 340 150 430 150 C470 150 490 120 500 96"
-              fill="none" stroke="#45E3B8" stroke-width="2.4"/>
-            <g fill="#0a131e" stroke="#45E3B8" stroke-width="1.6">
-              <circle cx="20" cy="158" r="5"/><circle cx="230" cy="40" r="5"/><circle cx="430" cy="150" r="5"/><circle cx="500" cy="96" r="5"/>
-            </g>
-            <circle cx="230" cy="40" r="11" fill="none" stroke="#45E3B8" stroke-width="1" opacity=".4"/>
-            <text x="26" y="150" font-family="IBM Plex Mono" font-size="10" fill="#6E8099">start</text>
-            <text x="470" y="90" font-family="IBM Plex Mono" font-size="10" fill="#6E8099">goal</text>
-          </svg>
+          <svg viewBox="0 0 520 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <text x="28" y="30" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#E7EEF8">AUTONOMY · MISSION PIPELINE</text>
+  <path d="M48 158 C150 158 168 78 252 78 C330 78 348 120 410 112 L484 92" fill="none" stroke="#5B8DEF" stroke-width="2" stroke-dasharray="6 7" opacity=".75" class="dash"/>
+  <path d="M48 158 C150 158 168 80 252 80 C330 80 348 122 412 116 L484 96" fill="none" stroke="#45E3B8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="glow-fill"/>
+  <g fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.6"><circle cx="48" cy="158" r="6"/><circle cx="160" cy="106" r="5"/><circle cx="356" cy="92" r="5"/><circle cx="484" cy="96" r="6"/></g>
+  <g transform="translate(252 79)">
+    <g stroke="#21405c" stroke-width="2.2"><line x1="-16" y1="0" x2="16" y2="0"/><line x1="0" y1="-12" x2="0" y2="12"/></g>
+    <g fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.5" class="spin"><circle cx="-16" cy="0" r="6"/><circle cx="16" cy="0" r="6"/><circle cx="0" cy="-12" r="6"/><circle cx="0" cy="12" r="6"/></g>
+    <rect x="-7" y="-7" width="14" height="14" rx="3" fill="#0e1c2a" stroke="#5B8DEF" stroke-width="1.4"/>
+  </g>
+  <text x="36" y="176" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">start</text>
+  <text x="462" y="86" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">goal</text>
+</svg>
         </div>
         <div class="card-body">
           <div class="kicker"><span>Autonomy · ROS 2</span><span class="yr">2025–26</span></div>
@@ -431,58 +805,31 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg>
               Repository
             </a>
+            <a class="muted" href="https://drive.google.com/file/d/12sZeapvykAOAltczyK6GIHg2sd_26Q_Q/view?usp=drive_link" target="_blank" rel="noopener"> Video </a>
+
+
+            </a>
           </div>
         </div>
       </article>
 
-      <!-- 3: INDI control -->
-       <!--<article class="card reveal">
-        <div class="thumb">
-          <svg viewBox="0 0 520 188" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <rect width="520" height="188" fill="#0a131e"/>
-            <g stroke="#1a2b3f" stroke-width="1"><line x1="0" y1="63" x2="520" y2="63"/><line x1="0" y1="126" x2="520" y2="126"/></g>
-            <path d="M30 150 Q120 150 130 96 T260 96 T390 96 T490 96" fill="none" stroke="#5B8DEF" stroke-width="1.6" stroke-dasharray="4 4" opacity=".6"/>
-            <path d="M30 150 C90 150 105 50 150 50 C190 50 200 96 260 96 C320 96 332 96 390 96 L490 96" fill="none" stroke="#45E3B8" stroke-width="2.6"/>
-            <line x1="150" y1="40" x2="150" y2="160" stroke="#16273a"/>
-            <text x="156" y="44" font-family="IBM Plex Mono" font-size="10" fill="#6E8099">step</text>
-            <text x="36" y="170" font-family="IBM Plex Mono" font-size="10" fill="#6E8099">attitude response</text>
-          </svg>
-        </div>
-        <div class="card-body">
-          <div class="kicker"><span>Flight control</span><span class="yr">2025–26</span></div>
-          <h3>Extended INDI control for eVTOL UAVs</h3>
-          <p>Incremental nonlinear dynamic inversion for an eVTOL platform — comparing NDI and INDI formulations in Simulink, with control allocation across an over-actuated airframe and robustness to model uncertainty.</p>
-          <div class="stack"><b>NDI / INDI</b><b>Control allocation</b><b>Simulink</b><b>eVTOL</b></div>
-          <div class="card-links">
-            <a class="muted" href="https://github.com/Aqib-Habib" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg>
-              Details
-            </a>
-          </div>
-        </div>
-      </article> -->
-
-      <!-- 4: eVTOL airframe -->
+      <!-- 3: eVTOL airframe -->
       <article class="card reveal">
         <div class="thumb">
-          <svg viewBox="0 0 520 188" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <rect width="520" height="188" fill="#0a131e"/>
-            <g stroke="#162638" stroke-width="1" opacity=".7">
-              <line x1="60" y1="94" x2="460" y2="94"/><line x1="260" y1="20" x2="260" y2="168"/>
-            </g>
-            <!-- fuselage -->
-            <rect x="240" y="78" width="40" height="32" rx="8" fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.6"/>
-            <!-- wing -->
-            <path d="M120 94 L240 86 L240 102 L120 110 Z" fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.4"/>
-            <path d="M400 94 L280 86 L280 102 L400 110 Z" fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.4"/>
-            <!-- rotors -->
-            <g stroke="#5B8DEF" stroke-width="1.6" fill="none">
-              <circle cx="150" cy="60" r="16"/><circle cx="150" cy="128" r="16"/>
-              <circle cx="370" cy="60" r="16"/><circle cx="370" cy="128" r="16"/>
-            </g>
-            <g fill="#5B8DEF"><circle cx="150" cy="60" r="2.5"/><circle cx="150" cy="128" r="2.5"/><circle cx="370" cy="60" r="2.5"/><circle cx="370" cy="128" r="2.5"/></g>
-            <line x1="150" y1="76" x2="150" y2="94" stroke="#1f3247"/><line x1="370" y1="76" x2="370" y2="94" stroke="#1f3247"/>
-          </svg>
+          <svg viewBox="0 0 520 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <text x="28" y="30" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#E7EEF8">eVTOL UAV · AIRFRAME</text>
+  <g transform="translate(0 6)">
+    <g stroke="#21405c" stroke-width="3" fill="none"><line x1="200" y1="80" x2="260" y2="104"/><line x1="320" y1="80" x2="260" y2="104"/><line x1="200" y1="140" x2="260" y2="108"/><line x1="320" y1="140" x2="260" y2="108"/></g>
+    <rect x="251" y="74" width="18" height="74" rx="9" fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.6"/>
+    <path d="M251 104 L150 97 L150 113 L251 118 Z" fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.5"/>
+    <path d="M269 104 L370 97 L370 113 L269 118 Z" fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.5"/>
+    <path d="M255 78 L236 70 L236 78 L255 84 Z" fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.3"/>
+    <path d="M265 78 L284 70 L284 78 L265 84 Z" fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.3"/>
+    <g fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.6" class="spin"><circle cx="200" cy="80" r="15"/><circle cx="320" cy="80" r="15"/><circle cx="200" cy="140" r="15"/><circle cx="320" cy="140" r="15"/></g>
+    <g fill="#5B8DEF"><circle cx="200" cy="80" r="2.4"/><circle cx="320" cy="80" r="2.4"/><circle cx="200" cy="140" r="2.4"/><circle cx="320" cy="140" r="2.4"/></g>
+  </g>
+  <!-- <text x="28" y="188" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">CFRP · ANSYS FEA · Pixhawk / ArduPilot</text> -->
+</svg>
         </div>
         <div class="card-body">
           <div class="kicker"><span>Airframe · CFRP</span><span class="yr">2021–22</span></div>
@@ -491,34 +838,31 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <div class="stack"><b>SolidWorks</b><b>ANSYS FEA</b><b>CFRP</b><b>Pixhawk/ArduPilot</b></div>
           <div class="card-links">
             <a href="https://github.com/Aqib-Habib/Buraaq_eVTOL_UAV" target="_blank" rel="noopener">
-               <svg viewBox="0 0 24 24" fill="currentColor">
-      <path d="M22 7h-7V5h7v2zM12.6 12.2c.7-.4 1.3-1.2 1.3-2.5 0-2.4-1.8-3.7-4.5-3.7H2v12h7.6c2.8 0 4.7-1.4 4.7-4 0-1.5-.7-2.5-1.7-3.1zm-7.9-3.8h4.4c1.2 0 2 .5 2 1.6s-.8 1.6-2 1.6H4.7V8.4zm4.7 7.2H4.7v-2.9h4.7c1.4 0 2.1.6 2.1 1.5 0 1-.7 1.4-2.1 1.4zM19.1 8.6c-2.9 0-4.9 2.1-4.9 4.9s1.9 4.8 5 4.8c2.4 0 4-1.2 4.6-3.2h-2.5c-.3.7-1 1.1-2 1.1-1.4 0-2.3-.8-2.4-2h7c.2-3.3-1.4-5.6-4.8-5.6zm-2.1 4c.2-1.1.9-1.8 2.1-1.8 1.3 0 2 .7 2.1 1.8H17z"/>
-    </svg>
-            
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7V5h7v2zm-1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H13.96c.13 3.211 3.483 3.312 4.588 2.029h1.726zm-7.07-4h4.738c-.099-1.598-1.184-2.155-2.356-2.155-1.265 0-1.967.659-2.382 2.155zM5.736 16.97c1.5 0 2.464-.673 2.464-2.058 0-1.422-.834-1.962-2.482-1.962H3.5v4.02h2.236zm-.18-5.77c1.4 0 2.296-.612 2.296-1.86 0-1.252-.93-1.71-2.314-1.71H3.5v3.57h2.056zM1 5.5h5.297c2.94 0 4.703 1.045 4.703 3.33 0 1.395-.668 2.337-1.96 2.86 1.65.45 2.5 1.67 2.5 3.36C11.54 17.79 9.39 19 6.49 19H1V5.5z"/></svg>
             </a>
-            <a class="muted" href="https://github.com/Aqib-Habib/Buraaq_eVTOL_UAV" target="_blank" rel="noopener">View on Behance →</a>
+            <a class="muted" href="https://www.behance.net/gallery/138234119/Fixed-Wing-eVTOL-UAV" target="_blank" rel="noopener">Behance</a>
           </div>
         </div>
       </article>
 
-      <!-- 5: Structures -->
+      <!-- 4: Structures -->
       <article class="card reveal">
         <div class="thumb">
-          <svg viewBox="0 0 520 188" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <rect width="520" height="188" fill="#0a131e"/>
-            <!-- wing skin with mesh -->
-            <path id="wing" d="M40 130 L470 60 L480 78 L70 150 Z" fill="#0d1a27" stroke="#45E3B8" stroke-width="1.4"/>
-            <g stroke="#1d3850" stroke-width=".8">
-              <line x1="90" y1="135" x2="118" y2="92"/><line x1="150" y1="124" x2="178" y2="83"/>
-              <line x1="210" y1="114" x2="238" y2="74"/><line x1="270" y1="103" x2="298" y2="65"/>
-              <line x1="330" y1="93" x2="358" y2="56"/><line x1="390" y1="82" x2="418" y2="47"/>
-              <line x1="55" y1="138" x2="475" y2="69"/><line x1="62" y1="145" x2="478" y2="74"/>
-            </g>
-            <!-- stress hot spot -->
-            <circle cx="120" cy="138" r="22" fill="#FFB454" opacity=".12"/>
-            <circle cx="120" cy="138" r="11" fill="#FFB454" opacity=".22"/>
-            <text x="36" y="172" font-family="IBM Plex Mono" font-size="10" fill="#6E8099">σ_max at root</text>
-          </svg>
+          <svg viewBox="0 0 520 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <defs><linearGradient id="stress4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff5a52"/><stop offset="0.25" stop-color="#FFB454"/><stop offset="0.55" stop-color="#7fe07a"/><stop offset="0.8" stop-color="#45E3B8"/><stop offset="1" stop-color="#5B8DEF"/></linearGradient>
+  <clipPath id="wc4"><path d="M60 150 L470 74 L486 96 L84 170 Z"/></clipPath></defs>
+  <text x="28" y="30" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#E7EEF8">STRUCTURES · LOAD PATHS</text>
+  <rect x="360" y="40" width="120" height="9" rx="3" fill="url(#stress4)"/>
+  <text x="360" y="37" font-family="IBM Plex Mono,monospace" font-size="8.5" letter-spacing=".06em" fill="#9fb1cb">σmax</text><text x="454" y="37" font-family="IBM Plex Mono,monospace" font-size="8.5" letter-spacing=".06em" fill="#9fb1cb">σmin</text>
+  <path d="M60 150 L470 74 L486 96 L84 170 Z" fill="url(#stress4)" opacity="0.9"/>
+  <g clip-path="url(#wc4)" stroke="#0a1119" stroke-width="0.7" opacity="0.45">
+    <line x1="110" y1="50" x2="150" y2="185"/><line x1="160" y1="44" x2="200" y2="179"/><line x1="210" y1="38" x2="250" y2="173"/><line x1="260" y1="32" x2="300" y2="167"/><line x1="310" y1="26" x2="350" y2="161"/><line x1="360" y1="20" x2="400" y2="155"/><line x1="410" y1="14" x2="450" y2="149"/>
+    <line x1="40" y1="120" x2="500" y2="48"/><line x1="50" y1="142" x2="500" y2="70"/><line x1="60" y1="164" x2="500" y2="92"/>
+  </g>
+  <path d="M60 150 L470 74 L486 96 L84 170 Z" fill="none" stroke="#cfe0ef" stroke-width="1" opacity=".55"/>
+  <circle cx="96" cy="156" r="13" fill="#FFB454" opacity=".22"/><circle cx="96" cy="156" r="6" fill="#FFB454" opacity=".55" class="pulse-dot"/>
+  <!-- <text x="28" y="188" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">CATIA V5 · GD&amp;T · ANSYS Mechanical</text> -->
+</svg>
         </div>
         <div class="card-body">
           <div class="kicker"><span>Structures · FEA</span><span class="yr">2023–24</span></div>
@@ -526,41 +870,66 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <p>Structural design of aircraft components for a high-performance demonstrator at Turkish Aerospace Industries — CATIA V5 modelling, GD&amp;T drawings and ANSYS Mechanical analysis supporting design verification and manufacturing.</p>
           <div class="stack"><b>CATIA V5</b><b>ANSYS Mechanical</b><b>GD&amp;T</b><b>Composites</b></div>
           <div class="card-links">
-           
-            </a>
-            <a class="muted" href="https://www.tusas.com/en/products/aircraft/indigenous-development/tf" target="_blank" rel="noopener">Turkish Aerospace Industries →</a>
+            <a class="muted" href="https://www.tusas.com/en/products/aircraft/indigenous-development/tf" target="_blank" rel="noopener">Turkish Aerospace Industries</a>
+            <a class="muted" href="https://www.linkedin.com/feed/update/urn:li:activity:7308035877044121600/" target="_blank" rel="noopener">Video</a>
           </div>
-        </div> 
+        </div>
       </article>
 
-      <!-- 6: HORZYN -->
+      <!-- 5: HORYZN -->
       <article class="card reveal">
         <div class="thumb">
-          <svg viewBox="0 0 520 188" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-            <rect width="520" height="188" fill="#0a131e"/>
-            <g stroke="#162638" stroke-width="1"><circle cx="260" cy="94" r="70" fill="none"/><circle cx="260" cy="94" r="40" fill="none"/></g>
-            <!-- octacopter top view: 8 arms -->
-            <g stroke="#1f3247" stroke-width="2">
-              <line x1="260" y1="94" x2="260" y2="34"/><line x1="260" y1="94" x2="260" y2="154"/>
-              <line x1="260" y1="94" x2="200" y2="94"/><line x1="260" y1="94" x2="320" y2="94"/>
-              <line x1="260" y1="94" x2="217" y2="51"/><line x1="260" y1="94" x2="303" y2="51"/>
-              <line x1="260" y1="94" x2="217" y2="137"/><line x1="260" y1="94" x2="303" y2="137"/>
-            </g>
-            <g fill="#0a131e" stroke="#45E3B8" stroke-width="1.6">
-              <circle cx="260" cy="34" r="9"/><circle cx="260" cy="154" r="9"/><circle cx="200" cy="94" r="9"/><circle cx="320" cy="94" r="9"/>
-              <circle cx="217" cy="51" r="9"/><circle cx="303" cy="51" r="9"/><circle cx="217" cy="137" r="9"/><circle cx="303" cy="137" r="9"/>
-            </g>
-            <rect x="246" y="80" width="28" height="28" rx="6" fill="#0e1c2a" stroke="#5B8DEF" stroke-width="1.6"/>
-          </svg>
+          <svg viewBox="0 0 520 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <text x="28" y="30" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#E7EEF8">MANNED OCTACOPTER</text>
+  <g transform="translate(260 112)">
+    <circle cx="0" cy="0" r="76" fill="none" stroke="#162f45" stroke-width="1" opacity=".7"/>
+    <circle cx="0" cy="0" r="44" fill="none" stroke="#162f45" stroke-width="1" opacity=".55"/>
+    <g stroke="#21405c" stroke-width="2.6" fill="none">
+      <line x1="0" y1="0" x2="0" y2="-54"/><line x1="0" y1="0" x2="0" y2="54"/><line x1="0" y1="0" x2="-54" y2="0"/><line x1="0" y1="0" x2="54" y2="0"/>
+      <line x1="0" y1="0" x2="-38" y2="-38"/><line x1="0" y1="0" x2="38" y2="-38"/><line x1="0" y1="0" x2="-38" y2="38"/><line x1="0" y1="0" x2="38" y2="38"/>
+    </g>
+    <g fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.6" class="spin"><circle cx="0" cy="-54" r="10"/><circle cx="0" cy="54" r="10"/><circle cx="-54" cy="0" r="10"/><circle cx="54" cy="0" r="10"/><circle cx="-38" cy="-38" r="10"/><circle cx="38" cy="-38" r="10"/><circle cx="-38" cy="38" r="10"/><circle cx="38" cy="38" r="10"/></g>
+    <rect x="-15" y="-15" width="30" height="30" rx="6" fill="#0e1c2a" stroke="#5B8DEF" stroke-width="1.6"/>
+  </g>
+  <!-- <text x="28" y="188" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">control allocation · fault tolerance</text> -->
+</svg>
         </div>
         <div class="card-body">
           <div class="kicker"><span>Flight test · Safety</span><span class="yr">2024–25</span></div>
-          <h3>Manned Cctacopter — GoAero Safety Challenge</h3>
+          <h3>Manned Octacopter — GoAero Safety Challenge</h3>
           <p>Coordinated safety-critical control-system development for a manned octacopter in a global competition: robust control strategies for emergency-response mission profiles, with control-allocation algorithms developed and validated in the MATLAB UAV Toolbox.</p>
           <div class="stack"><b>Control allocation</b><b>MATLAB UAV Toolbox</b><b>Safety analysis</b></div>
           <div class="card-links">
-            
-            <a class="muted" href="https://horyzn.org/">HORZYN →</a>
+            <a class="muted" href="https://horyzn.org/" target="_blank" rel="noopener">HORYZN</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6: Baja SAE -->
+      <article class="card reveal">
+        <div class="thumb">
+          <svg viewBox="0 0 520 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+  <text x="28" y="30" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#E7EEF8">BAJA SAE · OFF-ROAD VEHICLE</text>
+  <g transform="translate(0 -2)">
+    <line x1="118" y1="160" x2="404" y2="160" stroke="#21405c" stroke-width="1.4"/>
+    <path d="M146 160 L166 106 L244 94 L302 94 L350 118 L374 160" fill="none" stroke="#45E3B8" stroke-width="2.6" stroke-linejoin="round"/>
+    <path d="M166 106 L302 94" fill="none" stroke="#45E3B8" stroke-width="2" opacity=".85"/>
+    <path d="M244 94 L302 134 L350 118" fill="none" stroke="#45E3B8" stroke-width="2" opacity=".7"/>
+    <path d="M210 160 L240 124 L302 134" fill="none" stroke="#5B8DEF" stroke-width="2" opacity=".85"/>
+    <path d="M248 130 L262 112 L280 114" fill="none" stroke="#21405c" stroke-width="2"/>
+    <g fill="none" stroke="#45E3B8" stroke-width="2.6" class="spin"><circle cx="186" cy="160" r="30"/><circle cx="362" cy="160" r="30"/></g>
+    <g fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.6"><circle cx="186" cy="160" r="9"/><circle cx="362" cy="160" r="9"/></g>
+  </g>
+  <!-- <text x="28" y="188" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">chassis · suspension · powertrain</text> -->
+</svg>
+        </div>
+        <div class="card-body">
+          <div class="kicker"><span>Competition · Vehicle Design</span><span class="yr">2019–22</span></div>
+          <h3>BAJA SAE Off-Road Vehicle</h3>
+          <p>Led a 60-member multidisciplinary team in an international student vehicle competition. Coordinated chassis, suspension and powertrain development, produced engineering drawings with GD&amp;T, supported fabrication and manufacturing, and contributed to 4th place in the BAJA SAE Arizona Global Sales Presentation and 2nd place overall at the National Piston Cup Challenge.</p>
+          <div class="stack"><b>Chassis</b><b>Suspension</b><b>Powertrain</b><b>GD&amp;T</b><b>Manufacturing</b><b>Team Leadership</b></div>
+          <div class="card-links">
+            <a class="muted" href="https://www.behance.net/gallery/203593035/Team-Markhor-BAJA-SAE">Project Highlights</a>
           </div>
         </div>
       </article>
@@ -584,7 +953,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
     <div class="research">
       <div class="pub reveal">
         <span class="status"><span style="width:7px;height:7px;border-radius:50%;background:var(--alert);display:inline-block"></span>Semester Thesis</span>
-        <h3>Comparative observer-based actuator FDI for quadrotor UAVs under parametric uncertainty</h3>
+        <h3>Comparative Observer-Based Actuator FDI for Quadrotor UAVs Under Parametric Uncertainty</h3>
         <div class="authors">A. Habib · Institute of Flight System Dynamics, Technical University of Munich</div>
         <div class="venue">→ Targeting IFAC SAFEPROCESS 2027</div>
         <p>Luenberger, Thau, EKF and UKF observers are evaluated as residual generators for partial and complete actuator loss-of-effectiveness. The study characterises detection sensitivity, robustness and false-alarm behaviour, with an uncertainty analysis that bounds achievable false-alarm rates as the standout contribution.</p>
@@ -617,65 +986,370 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
     <div class="sec-head reveal">
       <div>
         <span class="eyebrow">Experience</span>
-        <h2>From Structural Design to Flight Controls.</h2>
-        <p>A path through aircraft structures, prototyping and flight control — always hands-on, always close to the hardware.</p>
+        <h2>Professional Engineering, Research and Student-Team Leadership.</h2>
+        <p>Organized into industry roles, research work and competitive engineering teams.</p>
       </div>
-      <div class="tag">2022 — PRESENT</div>
+      <!-- <div class="tag">INDUSTRY · RESEARCH · TEAMS</div> -->
     </div>
 
-    <div class="timeline">
-      <div class="tl-item reveal">
-        <div class="tl-when"><span class="now">Jun 2025 — Now</span><br>Munich, DE</div>
-        <div class="tl-where">
-          <div class="role">Research · Semester &amp; Master Thesis</div>
-          <h3>Institute of Flight System Dynamics, TUM</h3>
-          <ul>
-            <li>Observer-based actuator fault detection &amp; diagnosis for quadrotors under uncertainty.</li>
-            <li>Extended INDI control investigation and observers for eVTOL UAVs.</li>
-            <li>Residual-based schemes demonstrating high sensitivity at low false-alarm rates.</li>
-          </ul>
+    <div class="exp-groups">
+
+      <!-- Professional Experience -->
+      <div class="exp-group professional reveal">
+        <div class="exp-group-head">
+          <div class="exp-group-title">
+            <span class="exp-group-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg>
+            </span>
+            <div>
+              <h3>Professional Experience</h3>
+              <p>Industry roles in aerospace structures, mechanical design, prototyping, production support and quality documentation.</p>
+            </div>
+          </div>
+          <div class="exp-group-tag">Industry roles</div>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <div class="tl-when"><span class="now">Oct 2025 — July 2026</span><br>Munich, DE</div>
+            <div class="tl-where">
+              <div class="role">Working Student · Production &amp; Quality</div>
+              <h3>Bruker Biosensors</h3>
+              <ul>
+                <li>Supported assembly, testing, quality assurance and verification of precision biosensor machines.</li>
+                <li>Documented production and performance data to support quality control, traceability and process evaluation.</li>
+                <li>Monitored process and quality-control steps contributing to product reliability and repeatable production workflows.</li>
+              </ul>
+              <div class="evidence-links">
+                <a class="evidence-link" href="" target="_blank" rel="noopener">Experience Letter</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-when">Sep 2024 — Jun 2025<br>Munich, DE</div>
+            <div class="tl-where">
+              <div class="role">Working Student · Mechanical Design &amp; Prototyping</div>
+              <h3>Microbubbles GmbH</h3>
+              <ul>
+                <li>Developed mechanical and aerodynamic assemblies in SolidWorks for prototype microplastic-separation systems.</li>
+                <li>Fabricated and iterated prototype components using SLA additive manufacturing, milling and laser cutting.</li>
+                <li>Built Python and VBA tools to automate analysis, accelerate design iteration and support experimental documentation.</li>
+              </ul>
+              <div class="evidence-links">
+                <a class="evidence-link" href="https://drive.google.com/file/d/1acHvOL8PeOiiLAwFVAftsAV02XRQ05Zr/view?usp=sharing" target="_blank" rel="noopener">Experience Letter</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-when">Jan 2023 — May 2024<br>Ankara, TR</div>
+            <div class="tl-where">
+              <div class="role">Structural Design Engineer</div>
+              <h3>Turkish Aerospace Industries</h3>
+              <ul>
+                <li>Designed aircraft structural components for vertical stabilizer and wing structures using CATIA V5 and ANSYS.</li>
+                <li>Produced detailed engineering drawings and GD&amp;T documentation supporting design release and manufacturing.</li>
+                <li>Supported manufacturing, prototyping and assembly activities involving composites, additive manufacturing and laser cutting.</li>
+              </ul>
+              <div class="evidence-links">
+                <a class="evidence-link" href="https://drive.google.com/file/d/1H1mE4lFg3-mDrmAuMU8mSVQLG1-rFADS/view?usp=drive_link" target="_blank" rel="noopener">Experience letter</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="tl-item reveal">
-        <div class="tl-when">Sep 2024 — Sep 2025<br>Munich, DE</div>
-        <div class="tl-where">
-          <div class="role">Flight Testing &amp; Control</div>
-          <h3>HORZYN</h3>
-          <ul>
-            <li>Safety-critical control-system development for a manned octacopter (GoAero Safety Challenge).</li>
-            <li>Robust control strategies for emergency-response mission profiles.</li>
-            <li>Control-allocation algorithms in the MATLAB UAV Toolbox.</li>
-          </ul>
+      <!-- Student Teams + Research -->
+      <div class="exp-group student-research reveal">
+        <div class="exp-group-head">
+          <div class="exp-group-title">
+            <span class="exp-group-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2 8l10 5 10-5-10-5z"/><path d="M4 10v5c3 3 13 3 16 0v-5"/><path d="M12 13v8"/></svg>
+            </span>
+            <div>
+              <h3>Student Teams + Research</h3>
+              <p>Academic Research, Student Competitions and Technical Leadership. </p>
+            </div>
+          </div>
+          <div class="exp-group-tag">Research &amp; Leadership</div>
+        </div>
+
+        <div class="timeline">
+          <div class="tl-item reveal">
+            <div class="tl-when"><span class="now">Jun 2025 — Now</span><br>Munich, DE</div>
+            <div class="tl-where">
+              <div class="role">Research · Semester &amp; Master Thesis</div>
+              <h3>Institute of Flight System Dynamics, TUM</h3>
+              <ul>
+                <li>Investigating observer-based actuator fault detection and diagnosis for quadrotors under uncertainty.</li>
+                <li>Implementing Luenberger, Thau, EKF and UKF residual-generation methods using analytical redundancy.</li>
+                <li>Evaluating partial and complete actuator loss-of-effectiveness scenarios for detection sensitivity, robustness and false-alarm behaviour.</li>
+              </ul>
+              <div class="evidence-links">
+                <a class="evidence-link" href="https://www.fsd.ed.tum.de/" target="_blank" rel="noopener">Lab</a>
+                <a class="evidence-link" href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=S0-50WsAAAAJ&citation_for_view=S0-50WsAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener">Thesis</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-when">Nov 2024 — Aug 2025<br>Munich, DE</div>
+            <div class="tl-where">
+              <div class="role">Flight Testing &amp; Control</div>
+              <h3>HORYZN</h3>
+              <ul>
+                <li>Contributed to safety-critical control-system development for a manned octacopter in the GoAero Safety Challenge.</li>
+                <li>Implemented robust control strategies for emergency-response mission profiles with emphasis on stability, performance and safety margins.</li>
+                <li>Developed and validated control-allocation algorithms in MATLAB and deployed workflows toward Pixhawk-based flight-control integration.</li>
+              </ul>
+              <div class="evidence-links">
+                <a class="evidence-link" href="https://horyzn.org/" target="_blank" rel="noopener">Team</a>
+                <a class="evidence-link" href="https://www.goaeroprize.com/stage-2-winning-teams/horyzn" target="_blank" rel="noopener">Competition</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-when">2023 — 2024<br>Pakistan</div>
+            <div class="tl-where">
+              <div class="role">Competition Judge · Technical Evaluation</div>
+              <h3>IMechE UAS Challenge Pakistan</h3>
+              <ul>
+                <li>Served as a technical judge for student UAV teams, evaluating aircraft design, mission readiness, system integration and flight-demonstration quality.</li>
+                <li>Reviewed technical presentations, design documentation and prototype execution across aerodynamics, structures, propulsion, controls and manufacturability.</li>
+                <li>Provided structured engineering feedback to competing teams and supported fair, criteria-based assessment of UAV concepts.</li>
+                <li>Awarded with "Best Judge" Prize</li>
+              </ul>
+              <div class="evidence-links">
+                <a class="evidence-link" href="https://www.facebook.com/UASchallengepakistan/" target="_blank" rel="noopener">Team</a>
+                <a class="evidence-link" href="https://drive.google.com/drive/folders/1Lj6fVCK3z5tZeDvEiC4_txyxGz1y_SDm" target="_blank" rel="noopener">Awards / Certificates</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="tl-item reveal">
+            <div class="tl-when">Aug 2019 — Sep 2022<br>Arizona, US / Pakistan</div>
+            <div class="tl-where">
+              <div class="role">Team Captain · BAJA SAE NUST</div>
+              <h3>Team Markhor</h3>
+              <ul>
+                <li>Led a 60-member multidisciplinary student team through design, manufacturing, testing and international competition execution.</li>
+                <li>Coordinated chassis, suspension and powertrain development, including CAD models, GD&amp;T drawings and MATLAB/Simulink performance simulations.</li>
+                <li>Supported manufacturing and assembly using CNC milling, lathe, laser cutting and welding, contributing to 4th place at BAJA SAE Arizona Global Sales Presentation and 2nd overall at the National Piston Cup Challenge.</li>
+              </ul>
+              <div class="evidence-links">
+                <a class="evidence-link" href="https://www.facebook.com/bajaracingnust" target="_blank" rel="noopener">Team</a>
+                <a class="evidence-link" href="https://www.behance.net/gallery/203593035/Team-Markhor-BAJA-SAE" target="_blank" rel="noopener">Project Highlights</a>
+                <a class="evidence-link" href="https://drive.google.com/file/d/1_yqjbF0zxHYBjA-pJXR1PxlOUbclquKx/view?usp=drive_link" target="_blank" rel="noopener">Awards / Certificates</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="tl-item reveal">
-        <div class="tl-when">Sep 2024 — Jun 2025<br>Munich, DE</div>
-        <div class="tl-where">
-          <div class="role">Working Student · Design &amp; Prototyping</div>
-          <h3>Microbubbles GmbH</h3>
-          <ul>
-            <li>Mechanical and aerodynamic assemblies in SolidWorks.</li>
-            <li>SLA additive manufacturing, milling and laser cutting of prototype parts.</li>
-            <li>Python/VBA tools to speed up design iteration.</li>
-          </ul>
-        </div>
-      </div>
+    </div>
+  </div>
+</section>
 
-      <div class="tl-item reveal">
-        <div class="tl-when">Jan 2023 — May 2024<br>Ankara, TR</div>
-        <div class="tl-where">
-          <div class="role">Structural Design Engineer</div>
-          <h3>Turkish Aerospace Industries</h3>
-          <ul>
-            <li>Vertical-stabiliser and wing components for a high-performance demonstrator (CATIA V5).</li>
-            <li>GD&amp;T engineering drawings and detailed design documentation.</li>
-            <li>ANSYS Mechanical analysis for design verification.</li>
-          </ul>
-        </div>
-      </div>
 
+<!-- ===================== EDUCATION ===================== -->
+<section id="education">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Education</span>
+        <h2>Academic foundation in Aerospace, Mechanical Engineering and Robotics.</h2>
+        <p>My academic path combines flight systems, UAV design, mechanical design, mechatronics and computer science.</p>
+      </div>
+      <!-- <div class="tag">TUM · NUST</div> -->
+    </div>
+
+    <div class="education-grid">
+      <article class="edu-card featured reveal">
+        <div class="edu-top">
+          <span class="edu-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/><path d="M22 10v6"/></svg>
+          </span>
+          <div>
+            <div class="edu-period">June 2024 — Present</div>
+            <h3>Technical University of Munich</h3>
+            <p class="edu-degree">Master of Science · Aerospace Engineering</p>
+          </div>
+        </div>
+        <p class="edu-focus">Graduate studies focused on flight control, UAV autonomy, state estimation, and fault detection for unmanned aerial systems.</p>
+        <div class="edu-badges">
+          <span>Flight Control</span><span>State Estimation</span><span>Fault Detection</span><span>UAV Systems</span>
+        </div>
+        <ul class="edu-highlights">
+          <li>Conducting semester and master’s thesis research at the TUM Institute of Flight System Dynamics on observer-based actuator fault detection and fault-adaptive control for UAVs/eVTOL systems.</li>
+          <li>Completed semester thesis work with a grade of 1.3, comparing Luenberger, Thau, EKF and UKF residual-generation methods under actuator faults and parametric uncertainty.</li>
+          <li>Built a graduate profile spanning control systems, autonomous systems, UAV design, flight dynamics, estimation, and simulation-based validation.</li>
+          <li>Contributed to HORYZN flight testing and control activities, including safety-critical control allocation and mission-oriented control strategies for a manned octacopter platform.</li>
+          <li>Represented HORYZN and student aerospace work at major industry events, including Paris Air Show 2025 and ILA Berlin 2026.</li>
+        </ul>
+        <!-- <div class="evidence-links">
+          <a class="evidence-link" href="https://drive.google.com/drive/folders/1-6vmmRNxcj0h8JaYcymeCQlIw9kE4tcV" target="_blank" rel="noopener">Academic / thesis documents</a>
+        </div> -->
+      </article>
+
+      <article class="edu-card compact reveal">
+        <div class="edu-top">
+          <span class="edu-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V4a2 2 0 0 1 2-2h12v20H6a2 2 0 0 1-2-2.5z"/><path d="M8 7h6"/><path d="M8 11h8"/></svg>
+          </span>
+          <div>
+            <div class="edu-period">Sep 2018 — Sep 2022</div>
+            <h3>National University of Sciences and Technology (NUST)</h3>
+            <p class="edu-degree">Bachelor of Engineering · Mechanical Engineering</p>
+          </div>
+        </div>
+        <p class="edu-focus">Mechanical engineering foundation with emphasis on aircraft structures, CAD/CAE, manufacturing, mechatronics, and UAV system integration.</p>
+        <div class="edu-badges">
+          <span>CGPA 3.8/4.0</span><span>Top 3%</span><span>Mechanical Design</span><span>Manufacturing</span><span>Robotics and Mechatronics</span><span>UAV Design</span>
+        </div>
+        <ul class="edu-highlights">
+          <li>Graduated in the top 3% of the class with a 3.8/4.0 CGPA.</li>
+          <li>Awarded the Rector’s Gold Medal and recognised for the best undergraduate project/thesis.</li>
+          <li>Designed and manufactured a hybrid eVTOL UAV using carbon-fibre composites and additive manufacturing, with Pixhawk, ArduPilot and Mission Planner integration.</li>
+          <li>Developed a strong engineering base in CAD modelling, structural design, GD&amp;T, prototyping, manufacturing, and system-level UAV design.</li>
+        </ul>
+        <!-- <div class="evidence-links">
+          <a class="evidence-link" href="https://drive.google.com/drive/folders/1-6vmmRNxcj0h8JaYcymeCQlIw9kE4tcV" target="_blank" rel="noopener">Degree, awards & thesis proof</a>
+        </div> -->
+      </article>
+
+      <article class="edu-card compact reveal">
+        <div class="edu-top">
+          <span class="edu-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"/><path d="M12 18v4"/><path d="m4.93 4.93 2.83 2.83"/><path d="m16.24 16.24 2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><circle cx="12" cy="12" r="4"/></svg>
+          </span>
+          <div>
+            <div class="edu-period">Aug 2023 — May 2024</div>
+            <h3>National University of Sciences and Technology (NUST)</h3>
+            <p class="edu-degree">Graduate Study · Mechatronics, Robotics and Automation Engineering</p>
+          </div>
+        </div>
+        <p class="edu-focus">Robotics and automation coursework strengthening the bridge between mechanical systems, control, autonomy and intelligent machines.</p>
+        <div class="edu-badges"><span>SLAM</span><span>Robot Mechanics</span><span>Control</span><span>Artificial Intelligence</span></div>
+        <!-- <div class="evidence-links">
+          <a class="evidence-link" href="https://drive.google.com/drive/folders/1-6vmmRNxcj0h8JaYcymeCQlIw9kE4tcV" target="_blank" rel="noopener">Course records</a>
+        </div> -->
+      </article>
+
+      <article class="edu-card compact reveal">
+        <div class="edu-top">
+          <span class="edu-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m18 16 4-4-4-4"/><path d="m6 8-4 4 4 4"/><path d="m14.5 4-5 16"/></svg>
+          </span>
+          <div>
+            <div class="edu-period">Sep 2018 — Jun 2022</div>
+            <h3>National University of Sciences and Technology (NUST)</h3>
+            <p class="edu-degree">Minor · Computer Science</p>
+          </div>
+        </div>
+        <p class="edu-focus">Computer science minor supporting simulation, and robotics software development.</p>
+        <div class="edu-badges"><span>Programming</span><span>Software Foundations</span><span>Web Development</span><span>Computational Tools</span></div>
+        <!-- <div class="evidence-links">
+          <a class="evidence-link" href="https://drive.google.com/drive/folders/1-6vmmRNxcj0h8JaYcymeCQlIw9kE4tcV" target="_blank" rel="noopener">Course records</a>
+        </div> -->
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ACHIEVEMENTS ===================== -->
+<section id="achievements">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div>
+        <span class="eyebrow">Achievements</span>
+        <h2>Recognition across Academics, and Engineering Competitions.</h2>
+        <p>Selected awards and competition outcomes highlighting academic excellence, leadership, technical execution and international exposure.</p>
+      </div>
+      <!-- <div class="tag">AWARDS · COMPETITIONS</div> -->
+    </div>
+
+    <div class="achievements-grid">
+      <article class="achievement-card reveal">
+        <div class="achievement-top">
+          <span class="achievement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M5 5H3v2a4 4 0 0 0 4 4"/><path d="M19 5h2v2a4 4 0 0 1-4 4"/></svg></span>
+          <div><h3>Rector’s Gold Medal</h3><p class="achievement-meta">NUST · Academic Excellence</p></div>
+        </div>
+        <p>Recognised as a top-performing Mechanical Engineering graduate, including <strong>best undergraduate project/thesis</strong> and graduation within the <strong>top 3%</strong> of the class.</p>
+        <div class="evidence-links">
+          <a class="evidence-link" href="https://drive.google.com/file/d/1qiRFg9aeIISAzRgY3InU9xv7azCbuBCf/view?usp=drive_link" target="_blank" rel="noopener">Award Certificate</a>
+        </div>
+      </article>
+
+      <article class="achievement-card reveal">
+        <div class="achievement-top">
+          <span class="achievement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h4l3-6h4l3 6h4"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 13h14"/></svg></span>
+          <div><h3>BAJA SAE Arizona</h3><p class="achievement-meta">Team Markhor · USA</p></div>
+        </div>
+        <p>Led a 60-member multidisciplinary team as Team Captain and Chief Engineer, achieving <strong>4th place</strong> in the BAJA SAE Global Sales Presentation.</p>
+        <div class="evidence-links">
+          <a class="evidence-link" href="https://drive.google.com/file/d/1_yqjbF0zxHYBjA-pJXR1PxlOUbclquKx/view?usp=drive_link" target="_blank" rel="noopener">Competition Evidence</a>
+        </div>
+      </article>
+
+      <article class="achievement-card reveal">
+        <div class="achievement-top">
+          <span class="achievement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7 7 .5-5.4 4.6 1.7 6.9L12 17.3 5.7 21l1.7-6.9L2 9.5 9 9l3-7z"/></svg></span>
+          <div><h3>National Piston Cup Challenge</h3><p class="achievement-meta">Vehicle Competition</p></div>
+        </div>
+        <p>Contributed to award-winning vehicle design and execution, securing <strong>2nd place overall</strong> at national level.</p>
+        <div class="evidence-links">
+          <a class="evidence-link" href="https://www.facebook.com/permalink.php/?story_fbid=307463848915401&id=100089553657899" target="_blank" rel="noopener">Award Evidence</a>
+        </div>
+      </article>
+
+      <article class="achievement-card reveal">
+        <div class="achievement-top">
+          <span class="achievement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h10"/><path d="M16 17l2 2 4-5"/></svg></span>
+          <div><h3>ASME CAD Competitions</h3><p class="achievement-meta">Speed CAD · TeamCAD</p></div>
+        </div>
+        <p>Secured <strong>3rd place</strong> in American Society of Mechanical Engineers Speed CAD and TeamCAD challenges.</p>
+        <div class="evidence-links">
+          <a class="evidence-link" href="https://drive.google.com/file/d/1CdFrXBgVAMi4MlFBXrHtxXQ7NU203m4B/view?usp=drive_link" target="_blank" rel="noopener">Competition Certificate</a>
+        </div>
+      </article>
+
+      <article class="achievement-card reveal">
+        <div class="achievement-top">
+          <span class="achievement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M2 12h20"/><path d="M4.9 4.9l14.2 14.2"/><path d="M19.1 4.9 4.9 19.1"/><circle cx="12" cy="12" r="4"/></svg></span>
+          <div><h3>GoAero Challenge</h3><p class="achievement-meta">HORYZN · Flight Control</p></div>
+        </div>
+        <p>Contributed to HORYZN flight testing and control activities for a manned octacopter platform; the team advanced through the <strong>first and second stages</strong> of the challenge.</p>
+        <div class="evidence-links">
+          <a class="evidence-link" href="https://www.goaeroprize.com/stage-2-winning-teams/horyzn" target="_blank" rel="noopener">Challenge Announcements</a>
+        </div>
+      </article>
+
+      <article class="achievement-card reveal">
+        <div class="achievement-top">
+          <span class="achievement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v8h14v-8"/><path d="M9 18v-5h6v5"/><path d="M12 4v14"/></svg></span>
+          <div><h3>IMechE UAS Challenge</h3><p class="achievement-meta">UAV Competition · Technical Judge</p></div>
+        </div>
+        <p>Served as a technical judge for the IMechE UAS Challenge Pakistan, assessing student UAV concepts across <strong>design quality</strong>, <strong>systems integration</strong>, <strong>mission readiness</strong> and <strong>engineering execution</strong>.</p>
+        <div class="evidence-links">
+          <a class="evidence-link" href="https://drive.google.com/drive/folders/1-6vmmRNxcj0h8JaYcymeCQlIw9kE4tcV" target="_blank" rel="noopener">Judging / competition evidence</a>
+        </div>
+      </article>
+
+      <article class="achievement-card reveal">
+        <div class="achievement-top">
+          <span class="achievement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l4 8 6 2-6 2-4 8-4-8-6-2 6-2 4-8z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span>
+          <div><h3>High Achiever Recognition</h3><p class="achievement-meta">Merit · Leadership</p></div>
+        </div>
+        <p>Awarded High Achiever’s Certificate and Gold Medal of Merit for podium finishes and contributions to national and international engineering competitions.</p>
+        <div class="evidence-links">
+          <a class="evidence-link" href="https://drive.google.com/file/d/1tOQ6KBITtkwZDSKh4KxvVqRJCqrQWLxP/view?usp=drive_link" target="_blank" rel="noopener">Recognition Certificate</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
 
 <!-- ===================== SKILLS ===================== -->
 <section id="skills">
@@ -721,8 +1395,77 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
        <span class="c"><a class="muted" href="https://www.coursera.org/account/accomplishments/specialization/certificate/AAAF6PXNUU28" target="_blank" rel="noopener">Additive Manufacturing Specialization</a></span>
        <span class="c"><a class="muted" href="https://drive.google.com/file/d/1lXLRKSfTSD9BCB9EgDc9evVXY0sA2z3_/view?usp=sharing" target="_blank" rel="noopener">EASA A1/A3 Drone Pilot</a></span>
     </div>
+
+    <!-- <div class="document-hub reveal">
+      <h3>Credential &amp; Document Archive</h3>
+      <p>Central folder for supporting documents such as course certificates, award evidence, competition documents and experience letters.</p>
+      <div class="evidence-links">
+        <a class="evidence-link" href="https://drive.google.com/drive/folders/1-6vmmRNxcj0h8JaYcymeCQlIw9kE4tcV" target="_blank" rel="noopener">Certificates &amp; Courses</a>
+        <a class="evidence-link" href="https://drive.google.com/drive/folders/1-6vmmRNxcj0h8JaYcymeCQlIw9kE4tcV" target="_blank" rel="noopener">Experience Letters</a>
+        <a class="evidence-link" href="https://drive.google.com/drive/folders/1-6vmmRNxcj0h8JaYcymeCQlIw9kE4tcV" target="_blank" rel="noopener">Awards &amp; Competitions</a>
+      </div>
+    </div> -->
+
+    <span class="eyebrow">References</span>
+    <div class="references-grid reveal">
+      <article class="reference-card">
+        <h4>Sebastian Letschert</h4>
+        <p class="reference-role">Head of Development and Production</p>
+        <p class="reference-company">Bruker Daltonics GmbH</p>
+        <div class="reference-contact">
+          <a class="reference-action" href="tel:+49892314163998" aria-label="Call Sebastian Letschert" title="+49 89 2314163998"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.6 2.61a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.26-1.26a2 2 0 0 1 2.11-.45c.84.28 1.71.48 2.61.6A2 2 0 0 1 22 16.92z"/></svg><span>Call</span></a>
+          <a class="reference-action" href="https://www.linkedin.com/search/results/people/?keywords=Sebastian%20Letschert%20Bruker%20Daltonics%20GmbH" target="_blank" rel="noopener" aria-label="Find Sebastian Letschert on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM8 18H5.5V9H8v9zM6.75 7.8A1.45 1.45 0 1 1 8.2 6.35 1.45 1.45 0 0 1 6.75 7.8zM18.5 18H16v-4.7c0-1.2-.43-2-1.5-2A1.62 1.62 0 0 0 13 13.2V18h-2.5V9H13v1.2a2.83 2.83 0 0 1 2.6-1.4c1.85 0 3.4 1.2 3.4 3.8V18z"/></svg><span>LinkedIn</span></a>
+          <a class="reference-action" href="mailto:Sebastian.Letschert@bruker.com" aria-label="Email Sebastian Letschert" title="Sebastian.Letschert@bruker.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a>
+        </div>
+      </article>
+
+      <article class="reference-card">
+        <h4>Francisco Sanchez</h4>
+        <p class="reference-role">Senior Development Engineer and Fablab Instructor</p>
+        <p class="reference-company">Microbubbles GmbH and Massachusetts Institute of Technology</p>
+        <div class="reference-contact">
+          <a class="reference-action" href="tel:+34616692712" aria-label="Call Francisco Sanchez" title="+34 616 69 27 12"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.6 2.61a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.26-1.26a2 2 0 0 1 2.11-.45c.84.28 1.71.48 2.61.6A2 2 0 0 1 22 16.92z"/></svg><span>Call</span></a>
+          <a class="reference-action" href="https://www.linkedin.com/search/results/people/?keywords=Francisco%20Sanchez%20Microbubbles%20GmbH" target="_blank" rel="noopener" aria-label="Find Francisco Sanchez on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM8 18H5.5V9H8v9zM6.75 7.8A1.45 1.45 0 1 1 8.2 6.35 1.45 1.45 0 0 1 6.75 7.8zM18.5 18H16v-4.7c0-1.2-.43-2-1.5-2A1.62 1.62 0 0 0 13 13.2V18h-2.5V9H13v1.2a2.83 2.83 0 0 1 2.6-1.4c1.85 0 3.4 1.2 3.4 3.8V18z"/></svg><span>LinkedIn</span></a>
+          <span class="reference-action is-disabled" aria-label="Email for Francisco Sanchez not provided" title="Email not provided"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></span>
+        </div>
+      </article>
+
+      <article class="reference-card">
+        <h4>Zoe Mbikayi</h4>
+        <p class="reference-role">Research Associate at FSD</p>
+        <p class="reference-company">Technical University of Munich</p>
+        <div class="reference-contact">
+          <a class="reference-action" href="tel:+491746586352" aria-label="Call Zoe Mbikayi" title="+49 174 6586352"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.6 2.61a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.26-1.26a2 2 0 0 1 2.11-.45c.84.28 1.71.48 2.61.6A2 2 0 0 1 22 16.92z"/></svg><span>Call</span></a>
+          <a class="reference-action" href="https://www.linkedin.com/search/results/people/?keywords=Zoe%20Mbikayi%20Technical%20University%20of%20Munich" target="_blank" rel="noopener" aria-label="Find Zoe Mbikayi on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM8 18H5.5V9H8v9zM6.75 7.8A1.45 1.45 0 1 1 8.2 6.35 1.45 1.45 0 0 1 6.75 7.8zM18.5 18H16v-4.7c0-1.2-.43-2-1.5-2A1.62 1.62 0 0 0 13 13.2V18h-2.5V9H13v1.2a2.83 2.83 0 0 1 2.6-1.4c1.85 0 3.4 1.2 3.4 3.8V18z"/></svg><span>LinkedIn</span></a>
+          <a class="reference-action" href="mailto:zoe.mbikayi@tum.de" aria-label="Email Zoe Mbikayi" title="zoe.mbikayi@tum.de"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a>
+        </div>
+      </article>
+
+      <article class="reference-card">
+        <h4>Musa Yildrim</h4>
+        <p class="reference-role">Project Manager</p>
+        <p class="reference-company">Turkish Aerospace Industries</p>
+        <div class="reference-contact">
+          <a class="reference-action" href="tel:+905354800313" aria-label="Call Musa Yildrim" title="+90 535 480 0313"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.6 2.61a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.26-1.26a2 2 0 0 1 2.11-.45c.84.28 1.71.48 2.61.6A2 2 0 0 1 22 16.92z"/></svg><span>Call</span></a>
+          <a class="reference-action" href="https://www.linkedin.com/search/results/people/?keywords=Musa%20Yildrim%20Turkish%20Aerospace%20Industries" target="_blank" rel="noopener" aria-label="Find Musa Yildrim on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM8 18H5.5V9H8v9zM6.75 7.8A1.45 1.45 0 1 1 8.2 6.35 1.45 1.45 0 0 1 6.75 7.8zM18.5 18H16v-4.7c0-1.2-.43-2-1.5-2A1.62 1.62 0 0 0 13 13.2V18h-2.5V9H13v1.2a2.83 2.83 0 0 1 2.6-1.4c1.85 0 3.4 1.2 3.4 3.8V18z"/></svg><span>LinkedIn</span></a>
+          <a class="reference-action" href="mailto:musa.yildrim@tai.com" aria-label="Email Musa Yildrim" title="musa.yildrim@tai.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a>
+        </div>
+      </article>
+
+      <article class="reference-card">
+        <h4>Mohsan Haider</h4>
+        <p class="reference-role">Senior Engineering Manager</p>
+        <p class="reference-company">Lockheed Martin and Turkish Aerospace Industries</p>
+        <div class="reference-contact">
+          <a class="reference-action" href="tel:+923349888891" aria-label="Call Mohsan Haider" title="+92 334 9888891"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.6 2.61a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.26-1.26a2 2 0 0 1 2.11-.45c.84.28 1.71.48 2.61.6A2 2 0 0 1 22 16.92z"/></svg><span>Call</span></a>
+          <a class="reference-action" href="https://www.linkedin.com/search/results/people/?keywords=Mohsan%20Haider%20Lockheed%20Martin%20and%20Turkish%20Aerospace%20Industries" target="_blank" rel="noopener" aria-label="Find Mohsan Haider on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM8 18H5.5V9H8v9zM6.75 7.8A1.45 1.45 0 1 1 8.2 6.35 1.45 1.45 0 0 1 6.75 7.8zM18.5 18H16v-4.7c0-1.2-.43-2-1.5-2A1.62 1.62 0 0 0 13 13.2V18h-2.5V9H13v1.2a2.83 2.83 0 0 1 2.6-1.4c1.85 0 3.4 1.2 3.4 3.8V18z"/></svg><span>LinkedIn</span></a>
+          <a class="reference-action" href="mailto:mohsan.haider@tai.com" aria-label="Email Mohsan Haider" title="mohsan.haider@tai.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
+
 
 <!-- ===================== CONTACT ===================== -->
 <section id="contact" class="contact">
