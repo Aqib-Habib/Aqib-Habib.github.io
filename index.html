@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
-<title>Aqib Habib — Autonomous Systems and Flight Control</title>
+<title>Aqib Habib — Autonomous Systems</title>
 <meta name="description" content="Aqib Habib — Aerospace engineer (M.Sc., TU Munich). Observer-based fault detection, flight control, and autonomy for unmanned aircraft. Research at the Institute of Flight System Dynamics." />
 
 <!-- Open Graph -->
@@ -214,27 +214,42 @@ section{padding:90px 0;border-top:1px solid var(--line-soft)}
 .card p{color:var(--muted);font-size:14.5px;margin:0;font-weight:300}
 .stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:6px}
 .stack b{font-family:"IBM Plex Mono";font-size:11px;font-weight:400;color:var(--muted);border:1px solid var(--line-soft);border-radius:6px;padding:3px 8px}
-.card-links{display:flex;gap:16px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line-soft)}
-.card-links a{font-family:"IBM Plex Mono";font-size:12.5px;color:var(--text);display:inline-flex;gap:7px;align-items:center;transition:color .2s}
-.card-links a:hover{color:var(--signal)}
+.card-links{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px;padding-top:14px;border-top:1px solid var(--line-soft)}
+.card-links a{
+  font-family:"IBM Plex Mono";font-size:12.5px;color:var(--text);display:inline-flex;gap:7px;align-items:center;
+  padding:7px 10px;border:1px solid var(--line-soft);border-radius:8px;background:rgba(255,255,255,.018);
+  text-decoration:underline;text-decoration-color:var(--signal-dim);text-underline-offset:3px;
+  transition:color .2s,border-color .2s,background .2s,transform .2s;
+}
 .card-links a svg{width:14px;height:14px}
-.card-links a.muted{color:var(--muted-2)}
+.card-links a.muted{color:var(--muted)}
+.card-links a:hover,.card-links a.muted:hover{
+  color:var(--signal);border-color:var(--signal-dim);background:rgba(69,227,184,.065);transform:translateY(-1px);
+}
+.card-links a:focus-visible{outline:2px solid var(--signal);outline-offset:3px}
 
 /* ---------------- RESEARCH ---------------- */
-.research{display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:start}
-.pub{border:1px solid var(--line);border-radius:var(--r);padding:26px;background:linear-gradient(180deg,var(--ink-2),var(--ink-1))}
+.research{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
+.pub{border:1px solid var(--line);border-radius:var(--r);padding:26px;background:linear-gradient(180deg,var(--ink-2),var(--ink-1));display:flex;flex-direction:column;min-width:0}
 .pub .status{display:inline-flex;align-items:center;gap:8px;font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.14em;color:var(--alert);border:1px solid rgba(255,180,84,.3);border-radius:999px;padding:5px 11px;text-transform:uppercase}
+.pub .status.semester{color:var(--signal);border-color:rgba(69,227,184,.3)}
+.pub .status.bachelor{color:var(--blue);border-color:rgba(91,141,239,.35)}
+.pub .status-dot{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block}
 .pub h3{font-size:22px;margin:16px 0 0}
 .pub .authors{color:var(--muted);font-size:14px;margin-top:8px}
 .pub .venue{font-family:"IBM Plex Mono";font-size:13px;color:var(--signal-dim);margin-top:12px}
 .pub p{color:var(--muted);font-size:14.5px;margin-top:14px}
-.obs-list{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:14px}
+.pub .card-links{margin-top:auto}
+.research-methods{margin-top:22px}
+.research-methods h3{font-size:18px;margin:0 0 14px}
+.obs-list{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .obs-list li{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:var(--ink-1);display:flex;gap:14px;align-items:flex-start}
 .obs-list .badge{font-family:"IBM Plex Mono";font-size:12px;color:var(--signal);border:1px solid var(--line);border-radius:8px;padding:6px 9px;min-width:90px;text-align:center;background:var(--ink-2)}
 .obs-list .badge.amber{color:var(--alert)}
 .obs-list .badge.blue{color:var(--blue)}
 .obs-list h4{margin:0;font-family:"Space Grotesk";font-size:15px;font-weight:600}
 .obs-list span{color:var(--muted);font-size:13.5px}
+@media (max-width:700px){.obs-list{grid-template-columns:1fr}}
 
 /* ---------------- EXPERIENCE ---------------- */
 .timeline{position:relative;margin-top:8px}
@@ -500,8 +515,15 @@ section{padding:90px 0;border-top:1px solid var(--line-soft)}
   background:rgba(69,227,184,.055);
   transform:translateY(-1px);
 }
+.evidence-link.is-disabled{
+  opacity:.45;
+  pointer-events:none;
+  cursor:not-allowed;
+  text-decoration:none;
+}
+.evidence-link.is-disabled::before{content:"—";color:var(--muted-2)}
 .document-hub{
-  margin-top:26px;
+  margin:26px 0;
   border:1px solid var(--line);
   border-radius:var(--r);
   padding:20px 22px;
@@ -524,7 +546,7 @@ section{padding:90px 0;border-top:1px solid var(--line-soft)}
 /* ---------------- SKILLS ---------------- */
 .skill-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .skill-col{border:1px solid var(--line);border-radius:var(--r);padding:22px;background:linear-gradient(180deg,var(--ink-2),var(--ink-1))}
-.skill-col h4{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--signal-dim);margin:0 0 16px}
+.skill-col h3{font-family:"IBM Plex Mono";font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--signal-dim);margin:0 0 16px}
 .skill-col ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
 .skill-col li{font-family:"IBM Plex Mono";font-size:12.5px;color:var(--text);border:1px solid var(--line-soft);border-radius:7px;padding:6px 11px;background:rgba(255,255,255,.012)}
 
@@ -685,7 +707,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
       <div>
         <span class="eyebrow">Technical University of Munich</span>
         <!-- <span class="eyebrow">Institute of Flight System Dynamics · TU Munich</span> -->
-        <h1>Control Systems, &amp; Mechanical Design for Unmanned and Autonomous Vehicles.</h1>
+        <h1>Control Systems, &amp; Mechanical Design for Autonomous Systems.</h1>
         <p class="lede">
           I'm an aerospace engineer finishing my M.Sc. at TU Munich. I design the <b>control loops</b> that keep a vehicle stable, the <b>estimators</b> that tell it where it is, and the <b>fault monitors</b> that catch a failing actuator before it brings the UAV down. My work also connects deeply with <b>mechanical design</b> and <b>airframe structures</b>, from aerodynamic surfaces and lightweight composite assemblies to manufacturable UAV architectures that balance performance, reliability, and structural integrity.
 
@@ -704,7 +726,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
       </div>
 
       <!-- SIGNATURE: live observer-based fault-detection monitor -->
-      <div class="panel" aria-label="Live demonstration of observer-based fault detection">
+      <div class="panel" role="region" aria-label="Live demonstration of observer-based fault detection">
         <div class="panel-head">
           <span class="ttl">Observer · residual monitor</span>
           <span class="led" id="tlmLed"><span class="b"></span><span id="tlmLedTxt">NOMINAL</span></span>
@@ -807,9 +829,6 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
               Repository
             </a>
             <a class="muted" href="https://drive.google.com/file/d/12sZeapvykAOAltczyK6GIHg2sd_26Q_Q/view?usp=drive_link" target="_blank" rel="noopener"> Video </a>
-
-
-            </a>
           </div>
         </div>
       </article>
@@ -839,9 +858,15 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <div class="stack"><b>SolidWorks</b><b>ANSYS FEA</b><b>CFRP</b><b>Pixhawk/ArduPilot</b></div>
           <div class="card-links">
             <a href="https://github.com/Aqib-Habib/Buraaq_eVTOL_UAV" target="_blank" rel="noopener">
-              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7V5h7v2zm-1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H13.96c.13 3.211 3.483 3.312 4.588 2.029h1.726zm-7.07-4h4.738c-.099-1.598-1.184-2.155-2.356-2.155-1.265 0-1.967.659-2.382 2.155zM5.736 16.97c1.5 0 2.464-.673 2.464-2.058 0-1.422-.834-1.962-2.482-1.962H3.5v4.02h2.236zm-.18-5.77c1.4 0 2.296-.612 2.296-1.86 0-1.252-.93-1.71-2.314-1.71H3.5v3.57h2.056zM1 5.5h5.297c2.94 0 4.703 1.045 4.703 3.33 0 1.395-.668 2.337-1.96 2.86 1.65.45 2.5 1.67 2.5 3.36C11.54 17.79 9.39 19 6.49 19H1V5.5z"/></svg>
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg>
+              Repository
             </a>
-            <a class="muted" href="https://www.behance.net/gallery/138234119/Fixed-Wing-eVTOL-UAV" target="_blank" rel="noopener">Behance</a>
+            <a class="muted" href="https://www.behance.net/gallery/138234119/Fixed-Wing-eVTOL-UAV" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7V5h7v2zm-1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H13.96c.13 3.211 3.483 3.312 4.588 2.029h1.726zm-7.07-4h4.738c-.099-1.598-1.184-2.155-2.356-2.155-1.265 0-1.967.659-2.382 2.155zM5.736 16.97c1.5 0 2.464-.673 2.464-2.058 0-1.422-.834-1.962-2.482-1.962H3.5v4.02h2.236zm-.18-5.77c1.4 0 2.296-.612 2.296-1.86 0-1.252-.93-1.71-2.314-1.71H3.5v3.57h2.056zM1 5.5h5.297c2.94 0 4.703 1.045 4.703 3.33 0 1.395-.668 2.337-1.96 2.86 1.65.45 2.5 1.67 2.5 3.36C11.54 17.79 9.39 19 6.49 19H1V5.5z"/></svg>
+              4+1 eVTOL</a>
+            <a class="muted" href="https://www.behance.net/gallery/203583655/Tilt-WingTilt-Rotor-eVTOL-UAV" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7V5h7v2zm-1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H13.96c.13 3.211 3.483 3.312 4.588 2.029h1.726zm-7.07-4h4.738c-.099-1.598-1.184-2.155-2.356-2.155-1.265 0-1.967.659-2.382 2.155zM5.736 16.97c1.5 0 2.464-.673 2.464-2.058 0-1.422-.834-1.962-2.482-1.962H3.5v4.02h2.236zm-.18-5.77c1.4 0 2.296-.612 2.296-1.86 0-1.252-.93-1.71-2.314-1.71H3.5v3.57h2.056zM1 5.5h5.297c2.94 0 4.703 1.045 4.703 3.33 0 1.395-.668 2.337-1.96 2.86 1.65.45 2.5 1.67 2.5 3.36C11.54 17.79 9.39 19 6.49 19H1V5.5z"/></svg>
+              tilt-rotor</a>
           </div>
         </div>
       </article>
@@ -901,7 +926,8 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <p>Coordinated safety-critical control-system development for a manned octacopter in a global competition: robust control strategies for emergency-response mission profiles, with control-allocation algorithms developed and validated in the MATLAB UAV Toolbox.</p>
           <div class="stack"><b>Control allocation</b><b>MATLAB UAV Toolbox</b><b>Safety analysis</b></div>
           <div class="card-links">
-            <a class="muted" href="https://horyzn.org/" target="_blank" rel="noopener">HORYZN</a>
+            <a class="muted" href="https://www.ed.tum.de/en/ed/news-single-view-start/article/horyzn-secures-global-victory-in-goaero-mission/" target="_blank" rel="noopener">Project Highlights</a>
+            <a class="muted" href="https://horyzn.org/" target="_blank" rel="noopener">Team</a>
           </div>
         </div>
       </article>
@@ -931,6 +957,8 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <div class="stack"><b>Chassis</b><b>Suspension</b><b>Powertrain</b><b>GD&amp;T</b><b>Manufacturing</b><b>Team Leadership</b></div>
           <div class="card-links">
             <a class="muted" href="https://www.behance.net/gallery/203593035/Team-Markhor-BAJA-SAE">Project Highlights</a>
+            <a class="muted" href="https://www.facebook.com/bajaracingnust">Team</a>
+
           </div>
         </div>
       </article>
@@ -945,39 +973,63 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
     <div class="sec-head reveal">
       <div>
         <span class="eyebrow">Research</span>
-        <h2>Catching faults from the Residuals.</h2>
-        <p>My thesis work compares observer-based residual-generation strategies for quadrotor actuator faults — under nominal, faulty and parametric-uncertainty conditions.</p>
+        <h2>Research across Detection, Control and UAV Design.</h2>
+        <p>From observer-based actuator fault detection to extended INDI flight control and the complete development of a hybrid VTOL aircraft.</p>
       </div>
-      <div class="tag">FAULT DETECTION &amp; ISOLATION</div>
+      <div class="tag">FAULT TOLERANCE · FLIGHT CONTROL · eVTOL</div>
     </div>
 
     <div class="research">
       <div class="pub reveal">
-        <span class="status"><span style="width:7px;height:7px;border-radius:50%;background:var(--alert);display:inline-block"></span>Semester Thesis</span>
-        <h3>Comparative Observer-Based Actuator FDI for Quadrotor UAVs Under Parametric Uncertainty</h3>
+        <span class="status"><span class="status-dot"></span>Master’s Thesis · Ongoing</span>
+        <h3>Extended INDI Controller and Observer Design for an eVTOL UAV</h3>
         <div class="authors">A. Habib · Institute of Flight System Dynamics, Technical University of Munich</div>
-        <div class="venue">→ Targeting IFAC SAFEPROCESS 2027</div>
-        <p>Luenberger, Thau, EKF and UKF observers are evaluated as residual generators for partial and complete actuator loss-of-effectiveness. The study characterises detection sensitivity, robustness and false-alarm behaviour, with an uncertainty analysis that bounds achievable false-alarm rates as the standout contribution.</p>
-        <div class="card-links" style="border:none;padding-top:6px;margin-top:8px">
-          <a href="https://scholar.google.com/citations?user=S0-50WsAAAAJ&hl=en" target="_blank" rel="noopener">
-            
-    <svg viewBox="0 0 24 24" fill="currentColor">
-      <path d="M12 3 1 9l11 6 11-6-11-6zm0 8.7L5.2 8 12 4.3 18.8 8 12 11.7z"/>
-      <path d="M5 11.5V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-4.5l-7 3.8-7-3.8z"/>
-      <path d="M21 10.5v5h2v-6.1l-2 1.1z"/>
-    </svg>
-            Google Scholar →
+        <div class="venue">→ M.Sc. Aerospace · 2026</div>
+        <p>Design and validation of an extended incremental nonlinear dynamic inversion (INDI) controller with observer-based state and disturbance estimation for an eVTOL UAV. The thesis focuses on robust flight-control performance across the vehicle’s operating envelope.</p>
+      </div>
+
+      <div class="pub reveal">
+        <span class="status semester"><span class="status-dot"></span>Semester Thesis</span>
+        <h3>Actuator Failure Detection Strategies for a Quadrotor UAV</h3>
+        <div class="authors">A. Habib · Z. Mbikayi · Technical University of Munich</div>
+        <div class="venue">→ Semester Thesis · March 2026 </div>
+        <p>Luenberger, Thau, EKF and UKF observers are evaluated as residual generators for partial and complete actuator loss-of-effectiveness. The study characterises detection sensitivity, modelling complexity and robustness against parameter uncertainty.</p>
+        <div class="card-links">
+          <a href="assets/documents/semester-thesis-actuator-failure-detection-strategies-for-a-quadrotor_UAV.pdf" target="_blank" rel="noopener">
+            Read Thesis →
+          </a>
+          <a href="https://www.researchgate.net/publication/403650654_Actuator_Failure_Detection_Strategies_for_a_Quadrotor_UAV" target="_blank" rel="noopener">
+            ResearchGate →
           </a>
         </div>
       </div>
 
+      <div class="pub reveal">
+        <span class="status bachelor"><span class="status-dot"></span>Bachelor’s Thesis</span>
+        <h3>Design and Manufacturing of Hybrid Vertical Takeoff and Landing (VTOL) UAV</h3>
+        <div class="authors">A. Habib · M. S. Azam · S. B. Khalid · U. Shahid</div>
+        <div class="venue">→ B.E. Mechanical Engineering · NUST · June 2022 </div>
+        <p>Conceptual, preliminary and detailed design of an autonomous hybrid VTOL UAV, combining runway-independent vertical flight with the range and endurance of a fixed-wing aircraft. The project covered aerodynamic design, structures, propulsion, manufacturing and flight-control integration.</p>
+        <div class="card-links">
+          <a href="assets/documents/bachelors-thesis-hybrid-vtol-uav.pdf" target="_blank">
+            Read Thesis →
+          </a>
+          <a href="https://www.researchgate.net/publication/374294529_Design_and_Manufacturing_of_Hybrid_Vertical_Takeoff_and_Landing_VTOL_UAV" target="_blank" rel="noopener">
+            ResearchGate →
+          </a>
+        </div>
+      </div>
+    </div>
+<!--
+    <div class="research-methods reveal">
+      <h3>Observer strategies evaluated in the semester thesis</h3>
       <ul class="obs-list reveal">
         <li><span class="badge">Luenberger</span><div><h4>Linear observer baseline</h4><span>Fast, simple residual generation around a trim point — the reference for sensitivity comparisons.</span></div></li>
         <li><span class="badge">Thau</span><div><h4>Nonlinear observer</h4><span>Stability guarantees for the nonlinear quadrotor model under Lipschitz conditions.</span></div></li>
         <li><span class="badge blue">EKF</span><div><h4>Extended Kalman filter</h4><span>Stochastic residuals with noise-aware thresholds for realistic measurement conditions.</span></div></li>
         <li><span class="badge amber">UKF</span><div><h4>Unscented Kalman filter</h4><span>Better handling of strong nonlinearity during aggressive fault transients.</span></div></li>
       </ul>
-    </div>
+    </div> -->
   </div>
 </section>
 
@@ -1023,7 +1075,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
               </ul>
               <div class="evidence-links">
                 <a class="evidence-link" href="https://www.dynamic-biosensors.com/dynamic-biosensors/" target="_blank" rel="noopener">Company</a>
-                <a class="evidence-link" href="" target="_blank" rel="noopener">Experience Letter</a>
+                <span class="evidence-link is-disabled" aria-disabled="true" title="Experience letter not available">Experience Letter unavailable</span>
               </div>
             </div>
           </div>
@@ -1040,7 +1092,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
               </ul>
               <div class="evidence-links">
                 <a class="evidence-link" href="https://microbubbles.org/en/startseite-english/" target="_blank" rel="noopener">Company</a>
-                <a class="evidence-link" href="https://drive.google.com/file/d/1acHvOL8PeOiiLAwFVAftsAV02XRQ05Zr/view?usp=sharing" target="_blank" rel="noopener">Experience Letter</a>
+                <a class="evidence-link" href="assets/documents/microbubbles-experience-letter.jpeg" target="_blank">Experience Letter</a>
               </div>
             </div>
           </div>
@@ -1057,7 +1109,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
               </ul>
               <div class="evidence-links">
                 <a class="evidence-link" href="https://www.tusas.com/en" target="_blank" rel="noopener">Company</a>
-                <a class="evidence-link" href="https://drive.google.com/file/d/1H1mE4lFg3-mDrmAuMU8mSVQLG1-rFADS/view?usp=drive_link" target="_blank" rel="noopener">Experience Letter</a>
+                <a class="evidence-link" href="assets/documents/turkish-aerospace-experience-letter.pdf" target="_blank">Experience Letter</a>
               </div>
             </div>
           </div>
@@ -1093,7 +1145,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
               </ul>
               <div class="evidence-links">
                 <a class="evidence-link" href="https://www.fsd.ed.tum.de/" target="_blank" rel="noopener">Lab</a>
-                <a class="evidence-link" href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=S0-50WsAAAAJ&citation_for_view=S0-50WsAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener">Thesis</a>
+                <a class="evidence-link" href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=S0-50WsAAAAJ&citation_for_view=S0-50WsAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener">Semester Thesis</a>
               </div>
             </div>
           </div>
@@ -1128,7 +1180,9 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
               </ul>
               <div class="evidence-links">
                 <a class="evidence-link" href="https://www.facebook.com/UASchallengepakistan/" target="_blank" rel="noopener">Team</a>
-                <a class="evidence-link" href="https://drive.google.com/drive/folders/1Lj6fVCK3z5tZeDvEiC4_txyxGz1y_SDm" target="_blank" rel="noopener">Awards / Certificates</a>
+                <!-- <a class="evidence-link" href="assets/documents/imeche-certificate.pdf" target="_blank">Judge Certificate</a> -->
+                <a class="evidence-link" href="assets/documents/uas-challenge-pakistan-2022.pdf" target="_blank">UAS 2022</a>
+                <a class="evidence-link" href="assets/documents/uas-challenge-pakistan-2023.pdf" target="_blank">UAS 2023</a>
               </div>
             </div>
           </div>
@@ -1146,7 +1200,8 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
               <div class="evidence-links">
                 <a class="evidence-link" href="https://www.facebook.com/bajaracingnust" target="_blank" rel="noopener">Team</a>
                 <a class="evidence-link" href="https://www.behance.net/gallery/203593035/Team-Markhor-BAJA-SAE" target="_blank" rel="noopener">Project Highlights</a>
-                <a class="evidence-link" href="https://drive.google.com/file/d/1_yqjbF0zxHYBjA-pJXR1PxlOUbclquKx/view?usp=drive_link" target="_blank" rel="noopener">Awards / Certificates</a>
+                <a class="evidence-link" href="https://www.bajasae.net/res/EventResults.aspx?competitionid=8d2dd1e0-a0e8-49c5-8aad-832a52154c23&eventkey=PRES#:~:text=Finals-,4,Finals,-4" target="_blank">Global Ranking</a>
+                <a class="evidence-link" href="assets/documents/baja-sae-participation-certificate.pdf" target="_blank">Certificate</a>
               </div>
             </div>
           </div>
@@ -1193,9 +1248,6 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <li>Contributed to HORYZN flight testing and control activities, including safety-critical control allocation and mission-oriented control strategies for a manned octacopter platform.</li>
           <li>Represented HORYZN and student aerospace work at major industry events, including Paris Air Show 2025 and ILA Berlin 2026.</li>
         </ul>
-        <!-- <div class="evidence-links">
-          <a class="evidence-link" href="https://drive.google.com/drive/folders/1-6vmmRNxcj0h8JaYcymeCQlIw9kE4tcV" target="_blank" rel="noopener">Academic / thesis documents</a>
-        </div> -->
       </article>
 
       <article class="edu-card compact reveal">
@@ -1219,9 +1271,6 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <li>Designed and manufactured a hybrid eVTOL UAV using carbon-fibre composites and additive manufacturing, with Pixhawk, ArduPilot and Mission Planner integration.</li>
           <li>Developed a strong engineering base in CAD modelling, structural design, GD&amp;T, prototyping, manufacturing, and system-level UAV design.</li>
         </ul>
-        <!-- <div class="evidence-links">
-          <a class="evidence-link" href="https://drive.google.com/drive/folders/1-6vmmRNxcj0h8JaYcymeCQlIw9kE4tcV" target="_blank" rel="noopener">Degree, awards & thesis proof</a>
-        </div> -->
       </article>
 
       <article class="edu-card compact reveal">
@@ -1237,9 +1286,6 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         </div>
         <p class="edu-focus">Robotics and automation coursework strengthening the bridge between mechanical systems, control, autonomy and intelligent machines.</p>
         <div class="edu-badges"><span>SLAM</span><span>Robot Mechanics</span><span>Control</span><span>Artificial Intelligence</span></div>
-        <!-- <div class="evidence-links">
-          <a class="evidence-link" href="https://drive.google.com/drive/folders/1-6vmmRNxcj0h8JaYcymeCQlIw9kE4tcV" target="_blank" rel="noopener">Course records</a>
-        </div> -->
       </article>
 
       <article class="edu-card compact reveal">
@@ -1255,9 +1301,6 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         </div>
         <p class="edu-focus">Computer science minor supporting simulation, and robotics software development.</p>
         <div class="edu-badges"><span>Programming</span><span>Software Foundations</span><span>Web Development</span><span>Computational Tools</span></div>
-        <!-- <div class="evidence-links">
-          <a class="evidence-link" href="https://drive.google.com/drive/folders/1-6vmmRNxcj0h8JaYcymeCQlIw9kE4tcV" target="_blank" rel="noopener">Course records</a>
-        </div> -->
       </article>
     </div>
   </div>
@@ -1283,7 +1326,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         </div>
         <p>Recognised as a top-performing Mechanical Engineering graduate, including <strong>best undergraduate project/thesis</strong> and graduation within the <strong>top 3%</strong> of the class.</p>
         <div class="evidence-links">
-          <a class="evidence-link" href="https://drive.google.com/file/d/1qiRFg9aeIISAzRgY3InU9xv7azCbuBCf/view?usp=drive_link" target="_blank" rel="noopener">Award Certificate</a>
+          <a class="evidence-link" href="assets/documents/rectors-gold-medal.pdf" target="_blank">Award Certificate</a>
         </div>
       </article>
 
@@ -1294,7 +1337,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         </div>
         <p>Led a 60-member multidisciplinary team as Team Captain and Chief Engineer, achieving <strong>4th place</strong> in the BAJA SAE Global Sales Presentation.</p>
         <div class="evidence-links">
-          <a class="evidence-link" href="https://drive.google.com/file/d/1_yqjbF0zxHYBjA-pJXR1PxlOUbclquKx/view?usp=drive_link" target="_blank" rel="noopener">Competition Evidence</a>
+          <a class="evidence-link" href="assets/documents/baja-sae-participation-certificate.pdf" target="_blank">Competition Certificate</a>
         </div>
       </article>
 
@@ -1316,7 +1359,8 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         </div>
         <p>Secured <strong>3rd place</strong> in American Society of Mechanical Engineers Speed CAD and TeamCAD challenges.</p>
         <div class="evidence-links">
-          <a class="evidence-link" href="https://drive.google.com/file/d/1CdFrXBgVAMi4MlFBXrHtxXQ7NU203m4B/view?usp=drive_link" target="_blank" rel="noopener">Competition Certificate</a>
+          <a class="evidence-link" href="assets/documents/asme-speed-cad-certificate.pdf" target="_blank">Speed CAD Certificate</a>
+          <a class="evidence-link" href="assets/documents/asme-team-cad-certificate.pdf" target="_blank">Team CAD Certificate</a>
         </div>
       </article>
 
@@ -1338,7 +1382,9 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         </div>
         <p>Served as a technical judge for the IMechE UAS Challenge Pakistan, assessing student UAV concepts across <strong>design quality</strong>, <strong>systems integration</strong>, <strong>mission readiness</strong> and <strong>engineering execution</strong>.</p>
         <div class="evidence-links">
-          <a class="evidence-link" href="https://drive.google.com/drive/folders/1Lj6fVCK3z5tZeDvEiC4_txyxGz1y_SDm" target="_blank" rel="noopener">Judging / Competition Evidence</a>
+          <a class="evidence-link" href="assets/documents/uas-challenge-pakistan-2022.pdf" target="_blank">Certificate 2022</a>
+          <a class="evidence-link" href="assets/documents/uas-challenge-pakistan-2023.pdf" target="_blank">Certificate 2023</a>
+
         </div>
       </article>
 
@@ -1349,7 +1395,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         </div>
         <p>Awarded High Achiever’s Certificate and Gold Medal of Merit for podium finishes and contributions to national and international engineering competitions.</p>
         <div class="evidence-links">
-          <a class="evidence-link" href="https://drive.google.com/file/d/1tOQ6KBITtkwZDSKh4KxvVqRJCqrQWLxP/view?usp=drive_link" target="_blank" rel="noopener">Recognition Certificate</a>
+          <a class="evidence-link" href="assets/documents/high-achiever-certificate.png" target="_blank">Recognition Certificate</a>
         </div>
       </article>
     </div>
@@ -1370,20 +1416,20 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
 
     <div class="skill-grid">
       <div class="skill-col reveal">
-        <h4>Control &amp; Estimation</h4>
+        <h3>Control &amp; Estimation</h3>
         <ul>
           <li>Control Allocation</li><li>Control Systems</li><li>State Estimation</li><li>Path Planning</li>
           
         </ul>
       </div>
       <div class="skill-col reveal">
-        <h4>Modelling &amp; Software</h4>
+        <h3>Modelling &amp; Software</h3>
         <ul>
           <li>MATLAB</li><li>Simulink</li><li>Simscape</li><li>Python</li><li>C++</li><li>ROS 2</li><li>Git</li><li>Linux</li><li>LaTeX</li>
         </ul>
       </div>
       <div class="skill-col reveal">
-        <h4>Design &amp; Hardware</h4>
+        <h3>Design &amp; Hardware</h3>
         <ul>
           <li>CATIA V5</li><li>SolidWorks</li><li>ANSYS FEA</li><li>GD&amp;T</li><li>CFRP composites</li>
           <li>Additive mfg.</li><li>Pixhawk / ArduPilot</li><li>PX4</li>
@@ -1394,20 +1440,22 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
     <span class="eyebrow">Certifications</span>
     <div class="creds reveal">
 
-       <span class="c"><a class="muted" href="https://coursera.org/share/c1c9f8f8fc3b95797f6f82d9e94f8866" target="_blank" rel="noopener">Modern Robotics: Mechanics, Planning &amp; Control</a></span>
-       <span class="c"><a class="muted" href="https://coursera.org/share/57c0fe000eea793f9f1a4d6876206b73" target="_blank" rel="noopener">Aerial Robotics Specialization</a></span>
-       <span class="c"><a class="muted" href="https://matlabacademy.mathworks.com/progress/share/certificate.html?id=689cb037-9015-42e0-b30a-fd996c690606&" target="_blank" rel="noopener">Control Design Onramp · Simulink</a></span>
-       <span class="c"><a class="muted" href="https://www.coursera.org/account/accomplishments/specialization/certificate/AAAF6PXNUU28" target="_blank" rel="noopener">Additive Manufacturing Specialization</a></span>
-       <span class="c"><a class="muted" href="https://drive.google.com/file/d/1lXLRKSfTSD9BCB9EgDc9evVXY0sA2z3_/view?usp=sharing" target="_blank" rel="noopener">EASA A1/A3 Drone Pilot</a></span>
+       <span class="c"><a class="muted" href="assets/documents/modern-robotics-certificate.pdf" target="_blank">Modern Robotics: Mechanics, Planning &amp; Control</a></span>
+       <span class="c"><a class="muted" href="assets/documents/aerial-robotics-certificate.pdf" target="_blank">Aerial Robotics Specialization</a></span>
+       <span class="c"><a class="muted" href="assets/documents/control-design-onramp-certificate.pdf" target="_blank">Control Design Onramp · Simulink</a></span>
+       <span class="c"><a class="muted" href="assets/documents/additive-manufacturing-specialization-certificate.pdf" target="_blank">Additive Manufacturing Specialization</a></span>
+       <span class="c"><a class="muted" href="assets/documents/easa-a1-a3-drone-license.pdf" target="_blank">EASA A1/A3 Drone Pilot</a></span>
     </div>
 
     <!-- <div class="document-hub reveal">
       <h3>Credential &amp; Document Archive</h3>
-      <p>Central folder for supporting documents such as course certificates, award evidence, competition documents and experience letters.</p>
+      <p>Repository-hosted copies of portfolio certificates, course records and available experience letters.</p>
       <div class="evidence-links">
-        <a class="evidence-link" href="https://drive.google.com/drive/folders/1-6vmmRNxcj0h8JaYcymeCQlIw9kE4tcV" target="_blank" rel="noopener">Certificates &amp; Courses</a>
-        <a class="evidence-link" href="https://drive.google.com/drive/folders/1-6vmmRNxcj0h8JaYcymeCQlIw9kE4tcV" target="_blank" rel="noopener">Experience Letters</a>
-        <a class="evidence-link" href="https://drive.google.com/drive/folders/1-6vmmRNxcj0h8JaYcymeCQlIw9kE4tcV" target="_blank" rel="noopener">Awards &amp; Competitions</a>
+        <a class="evidence-link" href="assets/documents/portfolio-certificates.pdf" target="_blank">Certificates &amp; Awards</a>
+        <a class="evidence-link" href="assets/documents/portfolio-courses.pdf" target="_blank">Course Certificates</a>
+        <a class="evidence-link" href="assets/documents/bachelors-thesis-hybrid-vtol-uav.pdf" target="_blank">Bachelor’s Thesis</a>
+        <a class="evidence-link" href="assets/documents/microbubbles-experience-letter.jpeg" target="_blank">Microbubbles Letter</a>
+        <a class="evidence-link" href="assets/documents/turkish-aerospace-experience-letter.pdf" target="_blank">Turkish Aerospace Letter</a>
       </div>
     </div> -->
 
@@ -1427,22 +1475,23 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
       <article class="reference-card">
         <h4>Francisco Sanchez</h4>
         <p class="reference-role">Senior Development Engineer and Fablab Instructor</p>
-        <p class="reference-company">Microbubbles GmbH and Massachusetts Institute of Technology</p>
+        <p class="reference-company"> Massachusetts Institute of Technology and Microbubbles GmbH</p>
         <div class="reference-contact">
           <a class="reference-action" href="tel:+34616692712" aria-label="Call Francisco Sanchez" title="+34 616 69 27 12"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.6 2.61a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.26-1.26a2 2 0 0 1 2.11-.45c.84.28 1.71.48 2.61.6A2 2 0 0 1 22 16.92z"/></svg><span>Call</span></a>
           <a class="reference-action" href="https://www.linkedin.com/in/fsancheza/" target="_blank" rel="noopener" aria-label="Find Francisco Sanchez on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM8 18H5.5V9H8v9zM6.75 7.8A1.45 1.45 0 1 1 8.2 6.35 1.45 1.45 0 0 1 6.75 7.8zM18.5 18H16v-4.7c0-1.2-.43-2-1.5-2A1.62 1.62 0 0 0 13 13.2V18h-2.5V9H13v1.2a2.83 2.83 0 0 1 2.6-1.4c1.85 0 3.4 1.2 3.4 3.8V18z"/></svg><span>LinkedIn</span></a>
-          <span class="reference-action is-disabled" aria-label="Email for Francisco Sanchez not provided" title="Email not provided"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></span>
+          <span class="reference-action is-disabled" role="link" aria-disabled="true" aria-label="Email for Francisco Sanchez not provided" title="Email not provided"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></span>
         </div>
       </article>
 
       <article class="reference-card">
         <h4>Zoe Mbikayi</h4>
-        <p class="reference-role">Research Associate at FSD</p>
+        <p class="reference-role">Research Associate at Institute of Flight System Dynamics</p>
         <p class="reference-company">Technical University of Munich</p>
         <div class="reference-contact">
           <a class="reference-action" href="tel:+491746586352" aria-label="Call Zoe Mbikayi" title="+49 174 6586352"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.6 2.61a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.26-1.26a2 2 0 0 1 2.11-.45c.84.28 1.71.48 2.61.6A2 2 0 0 1 22 16.92z"/></svg><span>Call</span></a>
           <a class="reference-action" href="https://www.linkedin.com/in/zoe-mbikayi/" target="_blank" rel="noopener" aria-label="Find Zoe Mbikayi on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM8 18H5.5V9H8v9zM6.75 7.8A1.45 1.45 0 1 1 8.2 6.35 1.45 1.45 0 0 1 6.75 7.8zM18.5 18H16v-4.7c0-1.2-.43-2-1.5-2A1.62 1.62 0 0 0 13 13.2V18h-2.5V9H13v1.2a2.83 2.83 0 0 1 2.6-1.4c1.85 0 3.4 1.2 3.4 3.8V18z"/></svg><span>LinkedIn</span></a>
           <a class="reference-action" href="mailto:zoe.mbikayi@tum.de" aria-label="Email Zoe Mbikayi" title="zoe.mbikayi@tum.de"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a>
+          <a class="reference-action" href="https://scholar.google.com/citations?user=V4riC-AAAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="View Zoe Mbikayi on Google Scholar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l11 6 11-6-11-6zm0 8.7L5.2 8 12 4.3 18.8 8 12 11.7z"/><path d="M5 11.5V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-4.5l-7 3.8-7-3.8z"/><path d="M21 10.5v5h2v-6.1l-2 1.1z"/></svg><span>Scholar</span></a>
         </div>
       </article>
 
@@ -1467,6 +1516,43 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <a class="reference-action" href="mailto:mohsan.haider@tai.com" aria-label="Email Mohsan Haider" title="mohsan.haider@tai.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a>
         </div>
       </article>
+
+      <article class="reference-card">
+        <h4>Dr. Zaib Ali</h4>
+        <p class="reference-role">Associate Professor</p>
+        <p class="reference-company">University of Cambridge and National University of Sciences and Technology</p>
+        <div class="reference-contact">
+          <a class="reference-action" href="tel:+923331739958" aria-label="Call Dr. Zaib Ali" title="+92 333 1739958"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.6 2.61a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.26-1.26a2 2 0 0 1 2.11-.45c.84.28 1.71.48 2.61.6A2 2 0 0 1 22 16.92z"/></svg><span>Call</span></a>
+          <a class="reference-action" href="https://www.linkedin.com/in/dr-zaib-ali-a3243668/" target="_blank" rel="noopener" aria-label="Find Dr Zaib Ali on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM8 18H5.5V9H8v9zM6.75 7.8A1.45 1.45 0 1 1 8.2 6.35 1.45 1.45 0 0 1 6.75 7.8zM18.5 18H16v-4.7c0-1.2-.43-2-1.5-2A1.62 1.62 0 0 0 13 13.2V18h-2.5V9H13v1.2a2.83 2.83 0 0 1 2.6-1.4c1.85 0 3.4 1.2 3.4 3.8V18z"/></svg><span>LinkedIn</span></a>
+          <a class="reference-action" href="mailto:zaib.ali@smme.nust.edu.pk" aria-label="Email Dr. Zaib Ali" title="zaib.ali@smme.nust.edu.pk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a>
+          <a class="reference-action" href="https://scholar.google.com/citations?user=1lev-jEAAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="View Dr. Zaib Ali on Google Scholar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l11 6 11-6-11-6zm0 8.7L5.2 8 12 4.3 18.8 8 12 11.7z"/><path d="M5 11.5V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-4.5l-7 3.8-7-3.8z"/><path d="M21 10.5v5h2v-6.1l-2 1.1z"/></svg><span>Scholar</span></a>
+        </div>
+      </article>
+
+      <article class="reference-card">
+        <h4>Dr. Emad Uddin</h4>
+        <p class="reference-role">Professor</p>
+        <p class="reference-company">KAIST and National University of Sciences and Technology</p>
+        <div class="reference-contact">
+          <a class="reference-action" href="tel:+923319109992" aria-label="Call Dr. Emad Uddin" title="+92 331 9109992"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.6 2.61a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.26-1.26a2 2 0 0 1 2.11-.45c.84.28 1.71.48 2.61.6A2 2 0 0 1 22 16.92z"/></svg><span>Call</span></a>
+          <a class="reference-action" href="https://www.linkedin.com/in/emad-uddin-ph-d-9ba94987/" target="_blank" rel="noopener" aria-label="Find Dr. Emad Uddin on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM8 18H5.5V9H8v9zM6.75 7.8A1.45 1.45 0 1 1 8.2 6.35 1.45 1.45 0 0 1 6.75 7.8zM18.5 18H16v-4.7c0-1.2-.43-2-1.5-2A1.62 1.62 0 0 0 13 13.2V18h-2.5V9H13v1.2a2.83 2.83 0 0 1 2.6-1.4c1.85 0 3.4 1.2 3.4 3.8V18z"/></svg><span>LinkedIn</span></a>
+          <a class="reference-action" href="mailto:emaduddin@smme.nust.edu.pk" aria-label="Email Dr. Emad Uddin" title="emaduddin@smme.nust.edu.pk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a>
+          <a class="reference-action" href="https://scholar.google.com/citations?user=EFyJTjkAAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="View Dr. Emad Uddin on Google Scholar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l11 6 11-6-11-6zm0 8.7L5.2 8 12 4.3 18.8 8 12 11.7z"/><path d="M5 11.5V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-4.5l-7 3.8-7-3.8z"/><path d="M21 10.5v5h2v-6.1l-2 1.1z"/></svg><span>Scholar</span></a>
+        </div>
+      </article>
+
+      <article class="reference-card">
+        <h4>Dr. Samiur Rahman Shah</h4>
+        <p class="reference-role">Ex. Assistant Professor and Supervisor BAJA SAE</p>
+        <p class="reference-company">Centrale Nantes and National University of Sciences and Technology</p>
+        <div class="reference-contact">
+          <a class="reference-action" href="tel:+923341513862" aria-label="Call Dr. Samiur Rahman Shah" title="+92 334 1513862"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.6 2.61a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.26-1.26a2 2 0 0 1 2.11-.45c.84.28 1.71.48 2.61.6A2 2 0 0 1 22 16.92z"/></svg><span>Call</span></a>
+          <a class="reference-action" href="https://www.linkedin.com/in/samiur-rahman-shah-93b62321/" target="_blank" rel="noopener" aria-label="Find Dr. Samiur Rahman Shah on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM8 18H5.5V9H8v9zM6.75 7.8A1.45 1.45 0 1 1 8.2 6.35 1.45 1.45 0 0 1 6.75 7.8zM18.5 18H16v-4.7c0-1.2-.43-2-1.5-2A1.62 1.62 0 0 0 13 13.2V18h-2.5V9H13v1.2a2.83 2.83 0 0 1 2.6-1.4c1.85 0 3.4 1.2 3.4 3.8V18z"/></svg><span>LinkedIn</span></a>
+          <a class="reference-action" href="mailto:samiurrahmanshah@gmail.com" aria-label="Email Dr. Samiur Rahman Shah" title="samiurrahmanshah@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a>
+          <a class="reference-action" href="https://scholar.google.com/citations?user=Qkw9tCYAAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="View Dr. Samiur Rahman Shah on Google Scholar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l11 6 11-6-11-6zm0 8.7L5.2 8 12 4.3 18.8 8 12 11.7z"/><path d="M5 11.5V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-4.5l-7 3.8-7-3.8z"/><path d="M21 10.5v5h2v-6.1l-2 1.1z"/></svg><span>Scholar</span></a>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
