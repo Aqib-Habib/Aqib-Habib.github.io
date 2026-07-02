@@ -223,6 +223,19 @@ section{padding:90px 0;border-top:1px solid var(--line-soft)}
 }
 .card-links a svg{width:14px;height:14px}
 .card-links a.muted{color:var(--muted)}
+.card-links a.detail-link{
+  color:#04130d;
+  background:var(--signal);
+  border-color:var(--signal);
+  font-weight:500;
+  text-decoration:none;
+}
+.card-links a.detail-link:hover{
+  color:#04130d;
+  background:#67e9c7;
+  border-color:#67e9c7;
+  box-shadow:0 0 22px rgba(69,227,184,.18);
+}
 .card-links a:hover,.card-links a.muted:hover{
   color:var(--signal);border-color:var(--signal-dim);background:rgba(69,227,184,.065);transform:translateY(-1px);
 }
@@ -793,6 +806,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <p>Model-based fault detection &amp; diagnosis for a quadrotor across nominal, faulty and uncertain conditions. Four observer schemes generate residuals from analytical redundancy between measured and estimated states; partial and total loss-of-effectiveness faults are caught with high sensitivity and low false-alarm rate.</p>
           <div class="stack"><b>Luenberger</b><b>Thau</b><b>EKF</b><b>UKF</b><b>Simulink</b><b>Multirotor</b></div>
           <div class="card-links">
+            <a class="detail-link" href="projects/actuator-fault-detection.html">More Details →</a>
             <a class="muted" href="https://scholar.google.com/citations?view_op=view_citation&hl=en&user=S0-50WsAAAAJ&citation_for_view=S0-50WsAAAAJ:u5HHmVD_uO8C" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3 1 9l11 6 11-6-11-6zm0 8.7L5.2 8 12 4.3 18.8 8 12 11.7z"/><path d="M5 11.5V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-4.5l-7 3.8-7-3.8z"/><path d="M21 10.5v5h2v-6.1l-2 1.1z"/></svg>
               Paper
@@ -824,6 +838,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <p>End-to-end autonomous flight for a ROS 2 – Unity quadrotor: a geometric tracking controller, minimum-snap trajectory planning, camera-calibration workflow, EKF state estimation and a mission-level state machine for subterranean exploration — from waypoint generation to closed-loop control.</p>
           <div class="stack"><b>ROS 2</b><b>C++</b><b>Geometric control</b><b>EKF</b><b>Min-snap</b></div>
           <div class="card-links">
+            <a class="detail-link" href="projects/multirotor-autonomy.html">More Details →</a>
             <a class="muted" href="https://github.com/Aqib-Habib/visual-navigation-for-autonomous-uav" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg>
               Repository
@@ -857,7 +872,8 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <p>Designed, analysed and built carbon-fibre eVTOL airframes — tilt-wing/tilt-rotor and fixed-wing — in SolidWorks with ANSYS FEA, additive manufacturing and Pixhawk/ArduPilot flight control, taken from concept through to flying prototype.</p>
           <div class="stack"><b>SolidWorks</b><b>ANSYS FEA</b><b>CFRP</b><b>Pixhawk/ArduPilot</b></div>
           <div class="card-links">
-            <a href="https://github.com/Aqib-Habib/Buraaq_eVTOL_UAV" target="_blank" rel="noopener">
+            <a class="detail-link" href="projects/evtol-uavs.html">More Details →</a>
+            <a class="muted" href="https://github.com/Aqib-Habib/Buraaq_eVTOL_UAV" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg>
               Repository
             </a>
@@ -896,6 +912,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <p>Structural design of aircraft components for a high-performance demonstrator at Turkish Aerospace Industries — CATIA V5 modelling, GD&amp;T drawings and ANSYS Mechanical analysis supporting design verification and manufacturing.</p>
           <div class="stack"><b>CATIA V5</b><b>ANSYS Mechanical</b><b>GD&amp;T</b><b>Composites</b></div>
           <div class="card-links">
+            <a class="detail-link" href="projects/fighter-aircraft-demonstrator.html">More Details →</a>
             <a class="muted" href="https://www.tusas.com/en/products/aircraft/indigenous-development/tf" target="_blank" rel="noopener">Turkish Aerospace Industries</a>
             <a class="muted" href="https://www.linkedin.com/feed/update/urn:li:activity:7308035877044121600/" target="_blank" rel="noopener">Video</a>
           </div>
@@ -926,6 +943,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <p>Coordinated safety-critical control-system development for a manned octacopter in a global competition: robust control strategies for emergency-response mission profiles, with control-allocation algorithms developed and validated in the MATLAB UAV Toolbox.</p>
           <div class="stack"><b>Control allocation</b><b>MATLAB UAV Toolbox</b><b>Safety analysis</b></div>
           <div class="card-links">
+            <a class="detail-link" href="projects/manned-octacopter.html">More Details →</a>
             <a class="muted" href="https://www.ed.tum.de/en/ed/news-single-view-start/article/horyzn-secures-global-victory-in-goaero-mission/" target="_blank" rel="noopener">Project Highlights</a>
             <a class="muted" href="https://horyzn.org/" target="_blank" rel="noopener">Team</a>
           </div>
@@ -956,6 +974,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <p>Led a 60-member multidisciplinary team in an international student vehicle competition. Coordinated chassis, suspension and powertrain development, produced engineering drawings with GD&amp;T, supported fabrication and manufacturing, and contributed to 4th place in the BAJA SAE Arizona Global Sales Presentation and 2nd place overall at the National Piston Cup Challenge.</p>
           <div class="stack"><b>Chassis</b><b>Suspension</b><b>Powertrain</b><b>GD&amp;T</b><b>Manufacturing</b><b>Team Leadership</b></div>
           <div class="card-links">
+            <a class="detail-link" href="projects/baja-sae.html">More Details →</a>
             <a class="muted" href="https://www.behance.net/gallery/203593035/Team-Markhor-BAJA-SAE">Project Highlights</a>
             <a class="muted" href="https://www.facebook.com/bajaracingnust">Team</a>
 
@@ -1518,6 +1537,18 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
       </article>
 
       <article class="reference-card">
+        <h4>Dr. Emad Uddin</h4>
+        <p class="reference-role">Professor</p>
+        <p class="reference-company">KAIST and National University of Sciences and Technology</p>
+        <div class="reference-contact">
+          <a class="reference-action" href="tel:+923319109992" aria-label="Call Dr. Emad Uddin" title="+92 331 9109992"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.6 2.61a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.26-1.26a2 2 0 0 1 2.11-.45c.84.28 1.71.48 2.61.6A2 2 0 0 1 22 16.92z"/></svg><span>Call</span></a>
+          <a class="reference-action" href="https://www.linkedin.com/in/emad-uddin-ph-d-9ba94987/" target="_blank" rel="noopener" aria-label="Find Dr. Emad Uddin on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM8 18H5.5V9H8v9zM6.75 7.8A1.45 1.45 0 1 1 8.2 6.35 1.45 1.45 0 0 1 6.75 7.8zM18.5 18H16v-4.7c0-1.2-.43-2-1.5-2A1.62 1.62 0 0 0 13 13.2V18h-2.5V9H13v1.2a2.83 2.83 0 0 1 2.6-1.4c1.85 0 3.4 1.2 3.4 3.8V18z"/></svg><span>LinkedIn</span></a>
+          <a class="reference-action" href="mailto:emaduddin@smme.nust.edu.pk" aria-label="Email Dr. Emad Uddin" title="emaduddin@smme.nust.edu.pk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a>
+          <a class="reference-action" href="https://scholar.google.com/citations?user=EFyJTjkAAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="View Dr. Emad Uddin on Google Scholar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l11 6 11-6-11-6zm0 8.7L5.2 8 12 4.3 18.8 8 12 11.7z"/><path d="M5 11.5V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-4.5l-7 3.8-7-3.8z"/><path d="M21 10.5v5h2v-6.1l-2 1.1z"/></svg><span>Scholar</span></a>
+        </div>
+      </article>
+
+      <article class="reference-card">
         <h4>Dr. Zaib Ali</h4>
         <p class="reference-role">Associate Professor</p>
         <p class="reference-company">University of Cambridge and National University of Sciences and Technology</p>
@@ -1529,17 +1560,6 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         </div>
       </article>
 
-      <article class="reference-card">
-        <h4>Dr. Emad Uddin</h4>
-        <p class="reference-role">Professor</p>
-        <p class="reference-company">KAIST and National University of Sciences and Technology</p>
-        <div class="reference-contact">
-          <a class="reference-action" href="tel:+923319109992" aria-label="Call Dr. Emad Uddin" title="+92 331 9109992"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.6 2.61a2 2 0 0 1-.45 2.11L8 9.7a16 16 0 0 0 6.3 6.3l1.26-1.26a2 2 0 0 1 2.11-.45c.84.28 1.71.48 2.61.6A2 2 0 0 1 22 16.92z"/></svg><span>Call</span></a>
-          <a class="reference-action" href="https://www.linkedin.com/in/emad-uddin-ph-d-9ba94987/" target="_blank" rel="noopener" aria-label="Find Dr. Emad Uddin on LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.586 0H4.414A4.414 4.414 0 0 0 0 4.414v15.172A4.414 4.414 0 0 0 4.414 24h15.172A4.414 4.414 0 0 0 24 19.586V4.414A4.414 4.414 0 0 0 19.586 0zM8 18H5.5V9H8v9zM6.75 7.8A1.45 1.45 0 1 1 8.2 6.35 1.45 1.45 0 0 1 6.75 7.8zM18.5 18H16v-4.7c0-1.2-.43-2-1.5-2A1.62 1.62 0 0 0 13 13.2V18h-2.5V9H13v1.2a2.83 2.83 0 0 1 2.6-1.4c1.85 0 3.4 1.2 3.4 3.8V18z"/></svg><span>LinkedIn</span></a>
-          <a class="reference-action" href="mailto:emaduddin@smme.nust.edu.pk" aria-label="Email Dr. Emad Uddin" title="emaduddin@smme.nust.edu.pk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span>Email</span></a>
-          <a class="reference-action" href="https://scholar.google.com/citations?user=EFyJTjkAAAAJ&amp;hl=en" target="_blank" rel="noopener" aria-label="View Dr. Emad Uddin on Google Scholar"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3 1 9l11 6 11-6-11-6zm0 8.7L5.2 8 12 4.3 18.8 8 12 11.7z"/><path d="M5 11.5V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-4.5l-7 3.8-7-3.8z"/><path d="M21 10.5v5h2v-6.1l-2 1.1z"/></svg><span>Scholar</span></a>
-        </div>
-      </article>
 
       <article class="reference-card">
         <h4>Dr. Samiur Rahman Shah</h4>
