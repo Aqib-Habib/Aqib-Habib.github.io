@@ -1,0 +1,28 @@
+{
+  "tool": "Built-in image_gen",
+  "basePrompt": "High resolution 2048x1152 photorealistic engineering portfolio thumbnail. Premium industrial product photography, realistic materials, warm amber rim lighting and graphite shadows, three quarter perspective, clean composition, secret-agent dossier mood. No text, watermarks, logos, people, weapons, charts or UI. Conceptual visualization, not documentary photography.",
+  "faultDetection": "Use case: product-mockup. Create a high resolution 2048x1152 cinematic photorealistic engineering portfolio thumbnail. Subject: a carbon fibre research quadrotor with four two-bladed propellers, exposed flight-controller electronics and small downward camera, on a precision lab test bench. Finished plausible research hardware. Three quarter view, whole vehicle in frame, realistic proportions. Dark graphite laboratory, subtle warm amber edge light, neutral metal highlights, exceptionally crisp material texture. Sophisticated secret-agent engineering dossier mood. No text, logos, watermarks, people, weapons, charts or UI. This is a conceptual visualization of quadrotor actuator fault-detection research, not documentary evidence.",
+  "subjects": [
+    [
+      "autonomy",
+      "A compact four rotor carbon fibre autonomous research drone with stereo cameras hovering in a dark subterranean tunnel, onboard lights illuminating rough stone, cinematic volumetric light. Entire vehicle visible."
+    ],
+    [
+      "octacopter",
+      "A plausible experimental single seat electric rescue octacopter, open lightweight carbon frame, central empty pilot seat, eight rotors on four paired coaxial arms, landing skids, in an immaculate aircraft hangar. No enclosure. Entire aircraft visible."
+    ],
+    [
+      "fighter",
+      "An unarmed twin engine fighter aircraft engineering demonstrator parked inside a dark hangar, sleek graphite aerodynamic surfaces, realistic landing gear, three quarter front view with one open structural access panel showing machined aluminium ribs. Entire aircraft visible. No insignia."
+    ],
+    [
+      "evtol",
+      "A plausible carbon fibre fixed wing hybrid VTOL research drone, long straight wing, slender fuselage, four vertical lift propellers on two parallel booms and a rear cruise propeller, parked on a dark aircraft workshop floor. Entire vehicle visible."
+    ],
+    [
+      "baja",
+      "A finished single seat student BAJA SAE off-road buggy with exposed tubular steel roll cage, black and muted gold body panels, four chunky all-terrain tires, visible double wishbone suspension and coilover springs, parked in a dark motorsport workshop. Entire vehicle visible."
+    ]
+  ],
+  "area": "Use case: compositing. Input image is the actual AREA intermeshing rotor research drone CAD reference; preserve the exact aircraft configuration and geometry: two side-by-side tilted rotor masts, each two-bladed, overlapping rotor discs, black rectangular equipment platform, white box below it, silver tubular skid frame, visible electronics, yellow rotor tips. Create a high resolution 2048x1152 photorealistic finished-product portfolio image, whole vehicle including every blade tip fully inside frame with comfortable margins, on a dark aerospace laboratory floor, subtle warm amber rim lighting, physically realistic carbon fibre and brushed aluminium, premium cinematic photography, technical secret-agent dossier mood. Keep the drone recognizable and accurate to reference. No text, diagrams, logos, watermark, weapons or people. Opaque background."
+}
