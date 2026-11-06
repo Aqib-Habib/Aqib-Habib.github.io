@@ -4,12 +4,12 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
-<title>Aqib Habib — Autonomous Systems</title>
-<meta name="description" content="Aqib Habib — Aerospace engineer (M.Sc., TU Munich). Observer-based fault detection, flight control, and autonomy for unmanned aircraft. Research at the Institute of Flight System Dynamics." />
+<title>Aqib Habib — Engineering Dossier</title>
+<meta name="description" content="Aqib Habib — Aircraft design and certification engineer. Explore aerospace projects, flight dynamics, autonomous systems and research at the Technical University of Munich." />
 
 <!-- Open Graph -->
 <meta property="og:title" content="Aqib Habib — Autonomous Systems and Flight Control" />
-<meta property="og:description" content="Aerospace engineer at TU Munich. I design the control loops, state estimators, and fault monitors that keep unmanned aircraft flying." />
+<meta property="og:description" content="Aircraft design, certification, flight dynamics and autonomous systems. Explore the engineering portfolio of Aqib Habib." />
 <meta property="og:type" content="website" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,29 +131,6 @@ header.nav{
 .btn.primary:hover{box-shadow:0 0 34px rgba(69,227,184,.32);transform:translateY(-1px)}
 .btn.ghost:hover{border-color:var(--signal);color:var(--signal)}
 .btn svg{width:15px;height:15px}
-
-/* telemetry panel */
-.panel{
-  border:1px solid var(--line);border-radius:18px;background:
-    linear-gradient(180deg, var(--ink-2), var(--ink-1));
-  padding:16px;position:relative;overflow:hidden;
-  box-shadow:0 30px 80px -40px rgba(0,0,0,.8);
-}
-.panel-head{display:flex;align-items:center;justify-content:space-between;margin:2px 4px 12px}
-.panel-head .ttl{font-family:"IBM Plex Mono";font-size:11.5px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase}
-.led{display:inline-flex;align-items:center;gap:8px;font-family:"IBM Plex Mono";font-size:11.5px;letter-spacing:.12em}
-.led .b{width:8px;height:8px;border-radius:50%;background:var(--signal);box-shadow:0 0 10px var(--signal);transition:.25s}
-.led.alert .b{background:var(--alert);box-shadow:0 0 12px var(--alert)}
-.led.alert{color:var(--alert)}
-canvas#scope{display:block;width:100%;height:230px;border-radius:12px;background:
-  linear-gradient(180deg,#0a141f,#0a1119);border:1px solid var(--line-soft)}
-.readouts{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
-.readout{border:1px solid var(--line-soft);border-radius:10px;padding:10px 12px;background:rgba(255,255,255,.012)}
-.readout .k{font-family:"IBM Plex Mono";font-size:10px;letter-spacing:.14em;color:var(--muted-2);text-transform:uppercase}
-.readout .v{font-family:"IBM Plex Mono";font-size:18px;color:var(--text);margin-top:3px}
-.readout .v.sig{color:var(--signal)}
-.readout .v.alert{color:var(--alert)}
-.panel-foot{font-family:"IBM Plex Mono";font-size:11px;color:var(--muted-2);margin:11px 5px 3px;line-height:1.5}
 
 /* marquee strip */
 .strip{border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);margin-top:48px;background:var(--ink-1)}
@@ -684,6 +661,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
   section{padding:64px 0}
 }
 </style>
+<link rel="stylesheet" href="assets/dossier.css">
 </head>
 <body>
 <a class="skip" href="#work">Skip to work</a>
@@ -704,7 +682,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
       <a href="#achievements">Achievements</a>
       <a href="#skills">Skills</a>
       <a href="my-story.html">My Story</a>
-      <a class="nav-cta" href="#contact">Get in Touch →</a>
+      <a class="nav-cta" href="#contact">Make contact ↗</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="Toggle menu" aria-expanded="false">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
@@ -714,94 +692,24 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
 
 <main id="top">
 
-<!-- ===================== HERO ===================== -->
-<section class="hero" style="border-top:none">
-  <div class="wrap">
-    <div class="hero-grid">
-      <div>
-        <span class="eyebrow">Technical University of Munich</span>
-        <!-- <span class="eyebrow">Institute of Flight System Dynamics · TU Munich</span> -->
-        <h1>Control Systems &amp; Mechanical Design for Autonomous Systems</h1>
-        <p class="lede">
-          I'm an aerospace engineer finishing my M.Sc. at TU Munich. I design the <b>control loops</b> that keep a vehicle stable, the <b>estimators</b> that tell it where it is, and the <b>fault monitors</b> that catch a failing actuator before it brings the UAV down. My work also connects deeply with <b>mechanical design</b> and <b>airframe structures</b>, from aerodynamic surfaces and lightweight composite assemblies to manufacturable UAV architectures that balance performance, reliability, and structural integrity.
-
-        </p>
-        <div class="id-row">
-          <span class="chip"><i></i>Munich, Germany</span>
-          <span class="chip"><i></i>M.Sc. Aerospace, TUM</span>
-        </div>
-        <div class="hero-cta">
-          <a class="btn primary" href="#work">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-            Selected Projects
-          </a>
-          <a class="btn ghost" href="#contact">Contact Me</a>
-          <a class="btn ghost" href="assets/documents/Aqib_Habib_Resume_2026.pdf">Download CV</a>
-        </div>
-      </div>
-
-      <!-- SIGNATURE: live observer-based fault-detection monitor -->
-      <div class="panel" role="region" aria-label="Live demonstration of observer-based fault detection">
-        <div class="panel-head">
-          <span class="ttl">Observer · residual monitor</span>
-          <span class="led" id="tlmLed"><span class="b"></span><span id="tlmLedTxt">NOMINAL</span></span>
-        </div>
-        <canvas id="scope" width="520" height="230" role="img"
-          aria-label="A residual signal trace that stays near zero, spikes when an actuator fault is injected, crosses a detection threshold, and is flagged as a detected fault."></canvas>
-        <div class="readouts">
-          <div class="readout"><div class="k">Residual ‖r‖</div><div class="v sig" id="tlmResid">0.04</div></div>
-          <div class="readout"><div class="k">Threshold</div><div class="v" id="tlmThresh">0.55</div></div>
-          <div class="readout"><div class="k">Status</div><div class="v" id="tlmStatus">healthy</div></div>
-        </div>
-        <p class="panel-foot">
-          Live: an observer estimates the vehicle state; the residual between measured and estimated
-          output stays near zero until an actuator degrades. When it crosses the threshold, the fault is flagged.
-          This is the core of my thesis.
-        </p>
-      </div>
-    </div>
-  </div>
-
-  <!-- marquee -->
-  <!-- <div class="strip" aria-hidden="true">
-    <div class="wrap"><div class="strip-inner"><div class="strip-track" id="track">
-      <span>Control Systems</span>
-      <span>State Estimation</span>
-      <span>ROS 2 · <b>C++</b></span><span>MATLAB / Simulink</span><span>Mechanical Development</span>
-    </div></div></div>
-  </div> -->
-</section>
-
+<section class="hero" style="border-top:none"><div class="wrap"><div class="hero-grid"><div><span class="eyebrow">Personnel dossier / AH–001</span><h1>Aqib<span>Habib.</span></h1><p class="lede">Aerospace engineer. Aircraft designer. Systems thinker.<br>I turn complex flight problems into models, control systems and hardware built for the real world.</p><div class="id-row"><span class="chip">Munich, Germany</span><span class="chip">Aerospace · Autonomy · Design</span></div><div class="hero-cta"><a class="btn primary" href="#work">Explore mission files ↗</a><a class="btn ghost" href="#contact">Make contact</a><a class="btn ghost" href="assets/documents/Aqib_Habib_Resume_2026.pdf">Download CV ↓</a></div></div><aside class="dossier-id" aria-label="Engineer profile"><div class="file-label"><span>Engineering division</span><span>AH / 001</span></div><div class="monogram" aria-hidden="true">AH</div><div class="id-bottom"><span>Specialisation</span><strong>Flight. Form. Function.</strong><span>Aircraft design &amp; certification<br>Flight dynamics &amp; autonomous systems</span></div></aside></div><div class="access-bar"><span><b>ACCESS GRANTED</b> / Portfolio archive</span><span>BASE: MUNICH, DE</span><span>SCROLL TO EXPLORE ↓</span></div></div></section>
 <!-- ===================== WORK ===================== -->
 <section id="work">
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
         <span class="eyebrow">Selected Projects</span>
-        <h2>Things I've Designed, Modelled and Flown.</h2>
-        <p>A mix of research, autonomy software and mechanical engineering.</p>
+        <h2>Selected mission files.</h2>
+        <p>Aircraft, autonomous systems and engineering research. Explore the brief, the approach and the results.</p>
       </div>
-      <div class="tag">TOP PROJECTS · 2019–2026</div>
+      <div class="tag">PROJECT ARCHIVE / 2019–2026</div>
     </div>
 
-    <div class="work-grid">
+    <div class="work-grid"><article class="card reveal"><div class="thumb"><img src="assets/images/area.png" alt="AI-enhanced visualization of the AREA intermeshing-rotor research drone" width="2048" height="1152" loading="lazy"><span class="mission-number">FILE 01 / MASTER’S THESIS</span><span class="image-note">AI-enhanced CAD visualization</span></div><div class="card-body"><div class="kicker"><span>Research · Flight mechanics</span><span class="yr">2026</span></div><h3>AREA Intermeshing-Rotor Drone</h3><p>Development and validation of a nonlinear flight mechanics model for the AREA intermeshing-rotor drone. Six-degree-of-freedom dynamics, blade-element aerodynamics, coupled rotor inflow, periodic trim and PID, SCAS and LQR flight-control comparison in MATLAB and Simulink.</p><div class="stack"><b>MATLAB / Simulink</b><b>Rotor dynamics</b><b>Flight control</b></div><div class="card-links"><a class="detail-link" href="projects/area-drone.html">Open mission file →</a></div></div></article>
 
       <!-- 1: FDI -->
       <article class="card reveal">
-        <div class="thumb">
-          <svg viewBox="0 0 520 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-  <defs><linearGradient id="fdiTrace" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#45E3B8"/><stop offset="1" stop-color="#9ffff1"/></linearGradient></defs>
-  <text x="28" y="30" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#E7EEF8">OBSERVER · RESIDUAL MONITOR</text>
-  <g stroke="#1b3148" stroke-width="1" opacity=".7"><line x1="28" y1="64" x2="492" y2="64"/><line x1="28" y1="98" x2="492" y2="98"/><line x1="28" y1="132" x2="492" y2="132"/><line x1="28" y1="166" x2="492" y2="166"/></g>
-  <line x1="28" y1="92" x2="492" y2="92" stroke="#FFB454" stroke-width="1.4" stroke-dasharray="6 7" opacity=".85" class="dash-slow"/>
-  <text x="424" y="86" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">threshold</text>
-  <path d="M28 158 C70 156 96 159 128 154 C158 150 176 158 204 153 C224 150 236 156 252 120 C262 98 270 58 288 56 C304 54 314 92 330 122 C350 156 384 156 416 153 C446 150 470 156 492 155" fill="none" stroke="url(#fdiTrace)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="glow-fill"/>
-  <circle cx="270" cy="92" r="4.5" fill="#FFB454" class="pulse-dot"/>
-  <circle cx="270" cy="92" r="11" fill="none" stroke="#FFB454" stroke-width="1.2" opacity=".55" class="pulse-dot"/>
-  <text x="276" y="50" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">fault</text>
-  
-</svg>
-        </div>
+        <div class="thumb"><img src="assets/images/fault-detection.png" alt="AI concept visualization for quadrotor fault-detection research" width="2048" height="1152" loading="lazy"><span class="mission-number">FILE 02</span><span class="image-note">AI concept visualization</span></div>
         <div class="card-body">
           <div class="kicker"><span>Research · Fault Detection and Isolation</span><span class="yr">2025–26</span></div>
           <h3>Observer-based Actuator Fault Detection</h3>
@@ -819,21 +727,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
 
       <!-- 2: ROS2 autonomy -->
       <article class="card reveal">
-        <div class="thumb">
-          <svg viewBox="0 0 520 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-  <text x="28" y="30" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#E7EEF8">AUTONOMY · MISSION PIPELINE</text>
-  <path d="M48 158 C150 158 168 78 252 78 C330 78 348 120 410 112 L484 92" fill="none" stroke="#5B8DEF" stroke-width="2" stroke-dasharray="6 7" opacity=".75" class="dash"/>
-  <path d="M48 158 C150 158 168 80 252 80 C330 80 348 122 412 116 L484 96" fill="none" stroke="#45E3B8" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" class="glow-fill"/>
-  <g fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.6"><circle cx="48" cy="158" r="6"/><circle cx="160" cy="106" r="5"/><circle cx="356" cy="92" r="5"/><circle cx="484" cy="96" r="6"/></g>
-  <g transform="translate(252 79)">
-    <g stroke="#21405c" stroke-width="2.2"><line x1="-16" y1="0" x2="16" y2="0"/><line x1="0" y1="-12" x2="0" y2="12"/></g>
-    <g fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.5" class="spin"><circle cx="-16" cy="0" r="6"/><circle cx="16" cy="0" r="6"/><circle cx="0" cy="-12" r="6"/><circle cx="0" cy="12" r="6"/></g>
-    <rect x="-7" y="-7" width="14" height="14" rx="3" fill="#0e1c2a" stroke="#5B8DEF" stroke-width="1.4"/>
-  </g>
-  <text x="36" y="176" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">start</text>
-  <text x="462" y="86" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">goal</text>
-</svg>
-        </div>
+        <div class="thumb"><img src="assets/images/autonomy.png" alt="AI concept visualization for multirotor autonomy in a subterranean environment" width="2048" height="1152" loading="lazy"><span class="mission-number">FILE 03</span><span class="image-note">AI concept visualization</span></div>
         <div class="card-body">
           <div class="kicker"><span>Autonomy · ROS 2</span><span class="yr">2025–26</span></div>
           <h3>Full Autonomy Stack for a Multirotor</h3>
@@ -852,36 +746,12 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
 
 <!-- 3: HORYZN -->
       <article class="card reveal">
-        <div class="thumb">
-          <svg viewBox="0 0 520 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-  <text x="28" y="30" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#E7EEF8">MANNED OCTACOPTER</text>
-  <g transform="translate(260 112)">
-    <circle cx="0" cy="0" r="76" fill="none" stroke="#162f45" stroke-width="1" opacity=".7"/>
-    <circle cx="0" cy="0" r="44" fill="none" stroke="#162f45" stroke-width="1" opacity=".55"/>
-    <g stroke="#21405c" stroke-width="2.6" fill="none">
-      <line x1="0" y1="0" x2="0" y2="-54"/><line x1="0" y1="0" x2="0" y2="54"/><line x1="0" y1="0" x2="-54" y2="0"/><line x1="0" y1="0" x2="54" y2="0"/>
-      <line x1="0" y1="0" x2="-38" y2="-38"/><line x1="0" y1="0" x2="38" y2="-38"/><line x1="0" y1="0" x2="-38" y2="38"/><line x1="0" y1="0" x2="38" y2="38"/>
-    </g>
-    <g fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.6">
-      <g class="spin"><circle cx="0" cy="-54" r="10"/><path d="M-7-61L7-47M7-61L-7-47"/></g>
-      <g class="spin"><circle cx="0" cy="54" r="10"/><path d="M-7 47L7 61M7 47L-7 61"/></g>
-      <g class="spin"><circle cx="-54" cy="0" r="10"/><path d="M-61-7L-47 7M-47-7L-61 7"/></g>
-      <g class="spin"><circle cx="54" cy="0" r="10"/><path d="M47-7L61 7M61-7L47 7"/></g>
-      <g class="spin"><circle cx="-38" cy="-38" r="10"/><path d="M-45-45L-31-31M-31-45L-45-31"/></g>
-      <g class="spin"><circle cx="38" cy="-38" r="10"/><path d="M31-45L45-31M45-45L31-31"/></g>
-      <g class="spin"><circle cx="-38" cy="38" r="10"/><path d="M-45 31L-31 45M-31 31L-45 45"/></g>
-      <g class="spin"><circle cx="38" cy="38" r="10"/><path d="M31 31L45 45M45 31L31 45"/></g>
-    </g>
-    <rect x="-15" y="-15" width="30" height="30" rx="6" fill="#0e1c2a" stroke="#5B8DEF" stroke-width="1.6"/>
-  </g>
-  <!-- <text x="28" y="188" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">control allocation · fault tolerance</text> -->
-</svg>
-        </div>
+        <div class="thumb"><img src="assets/images/octacopter.png" alt="AI concept visualization for an experimental rescue octacopter" width="2048" height="1152" loading="lazy"><span class="mission-number">FILE 04</span><span class="image-note">AI concept visualization</span></div>
         <div class="card-body">
           <div class="kicker"><span>Flight test · Safety</span><span class="yr">2024–25</span></div>
           <h3>Manned Octacopter — GoAero Safety Challenge</h3>
-          <p>Coordinated safety-critical control-system development for a manned octacopter in a global competition: robust control strategies for emergency-response mission profiles, with control-allocation algorithms developed and validated in the MATLAB UAV Toolbox.</p>
-          <div class="stack"><b>Control allocation</b><b>MATLAB UAV Toolbox</b><b>Safety analysis</b></div>
+          <p>Coordinated safety-critical control-system development for a manned octacopter in a global competition: robust control strategies for emergency-response mission profiles, with control-allocation algorithms developed and validated in the MATLAB UAV Capabilities.</p>
+          <div class="stack"><b>Control allocation</b><b>MATLAB UAV Capabilities</b><b>Safety analysis</b></div>
           <div class="card-links">
             <a class="detail-link" href="projects/manned-octacopter.html">More Details →</a>
             <a class="muted" href="https://www.ed.tum.de/en/ed/news-single-view-start/article/horyzn-secures-global-victory-in-goaero-mission/" target="_blank" rel="noopener">Project Highlights</a>
@@ -890,27 +760,11 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         </div>
       </article>
 
-      
+
 
       <!-- 4: Structures -->
       <article class="card reveal">
-        <div class="thumb">
-          <svg viewBox="0 0 520 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-  <defs><linearGradient id="stress4" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#ff5a52"/><stop offset="0.25" stop-color="#FFB454"/><stop offset="0.55" stop-color="#7fe07a"/><stop offset="0.8" stop-color="#45E3B8"/><stop offset="1" stop-color="#5B8DEF"/></linearGradient>
-  <clipPath id="wc4"><path d="M60 150 L470 74 L486 96 L84 170 Z"/></clipPath></defs>
-  <text x="28" y="30" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#E7EEF8">STRUCTURES · LOAD PATHS</text>
-  <rect x="360" y="40" width="120" height="9" rx="3" fill="url(#stress4)"/>
-  <text x="360" y="37" font-family="IBM Plex Mono,monospace" font-size="8.5" letter-spacing=".06em" fill="#9fb1cb">σmax</text><text x="454" y="37" font-family="IBM Plex Mono,monospace" font-size="8.5" letter-spacing=".06em" fill="#9fb1cb">σmin</text>
-  <path d="M60 150 L470 74 L486 96 L84 170 Z" fill="url(#stress4)" opacity="0.9"/>
-  <g clip-path="url(#wc4)" stroke="#0a1119" stroke-width="0.7" opacity="0.45">
-    <line x1="110" y1="50" x2="150" y2="185"/><line x1="160" y1="44" x2="200" y2="179"/><line x1="210" y1="38" x2="250" y2="173"/><line x1="260" y1="32" x2="300" y2="167"/><line x1="310" y1="26" x2="350" y2="161"/><line x1="360" y1="20" x2="400" y2="155"/><line x1="410" y1="14" x2="450" y2="149"/>
-    <line x1="40" y1="120" x2="500" y2="48"/><line x1="50" y1="142" x2="500" y2="70"/><line x1="60" y1="164" x2="500" y2="92"/>
-  </g>
-  <path d="M60 150 L470 74 L486 96 L84 170 Z" fill="none" stroke="#cfe0ef" stroke-width="1" opacity=".55"/>
-  <circle cx="96" cy="156" r="13" fill="#FFB454" opacity=".22"/><circle cx="96" cy="156" r="6" fill="#FFB454" opacity=".55" class="pulse-dot"/>
-  <!-- <text x="28" y="188" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">CATIA V5 · GD&amp;T · ANSYS Mechanical</text> -->
-</svg>
-        </div>
+        <div class="thumb"><img src="assets/images/fighter.png" alt="AI concept visualization for a fighter aircraft demonstrator" width="2048" height="1152" loading="lazy"><span class="mission-number">FILE 05</span><span class="image-note">AI concept visualization</span></div>
         <div class="card-body">
           <div class="kicker"><span>Structures · FEA</span><span class="yr">2023–24</span></div>
           <h3>Fighter Aircraft Demonstrator</h3>
@@ -924,30 +778,10 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         </div>
       </article>
 
-  
+
 <!-- 5: eVTOL airframe -->
       <article class="card reveal">
-        <div class="thumb">
-          <svg viewBox="0 0 520 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-  <text x="28" y="30" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#E7EEF8">eVTOL UAV · AIRFRAME</text>
-  <g transform="translate(0 6)">
-    <g stroke="#21405c" stroke-width="3" fill="none"><line x1="200" y1="80" x2="260" y2="104"/><line x1="320" y1="80" x2="260" y2="104"/><line x1="200" y1="140" x2="260" y2="108"/><line x1="320" y1="140" x2="260" y2="108"/></g>
-    <rect x="251" y="74" width="18" height="74" rx="9" fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.6"/>
-    <path d="M251 104 L150 97 L150 113 L251 118 Z" fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.5"/>
-    <path d="M269 104 L370 97 L370 113 L269 118 Z" fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.5"/>
-    <path d="M255 78 L236 70 L236 78 L255 84 Z" fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.3"/>
-    <path d="M265 78 L284 70 L284 78 L265 84 Z" fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.3"/>
-    <g fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.6">
-      <g class="spin"><circle cx="200" cy="80" r="15"/><path d="M189 69L211 91M211 69L189 91"/></g>
-      <g class="spin"><circle cx="320" cy="80" r="15"/><path d="M309 69L331 91M331 69L309 91"/></g>
-      <g class="spin"><circle cx="200" cy="140" r="15"/><path d="M189 129L211 151M211 129L189 151"/></g>
-      <g class="spin"><circle cx="320" cy="140" r="15"/><path d="M309 129L331 151M331 129L309 151"/></g>
-    </g>
-    <g fill="#5B8DEF"><circle cx="200" cy="80" r="2.4"/><circle cx="320" cy="80" r="2.4"/><circle cx="200" cy="140" r="2.4"/><circle cx="320" cy="140" r="2.4"/></g>
-  </g>
-  <!-- <text x="28" y="188" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">CFRP · ANSYS FEA · Pixhawk / ArduPilot</text> -->
-</svg>
-        </div>
+        <div class="thumb"><img src="assets/images/evtol.png" alt="AI concept visualization for a hybrid VTOL UAV" width="2048" height="1152" loading="lazy"><span class="mission-number">FILE 06</span><span class="image-note">AI concept visualization</span></div>
         <div class="card-body">
           <div class="kicker"><span>Airframe · CFRP</span><span class="yr">2021–22</span></div>
           <h3>eVTOL UAVs</h3>
@@ -971,25 +805,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
 
       <!-- 6: Baja SAE -->
       <article class="card reveal">
-        <div class="thumb">
-          <svg viewBox="0 0 520 200" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-  <text x="28" y="30" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#E7EEF8">BAJA SAE · OFF-ROAD VEHICLE</text>
-  <g transform="translate(0 -2)">
-    <line x1="118" y1="160" x2="404" y2="160" stroke="#21405c" stroke-width="1.4"/>
-    <path d="M146 160 L166 106 L244 94 L302 94 L350 118 L374 160" fill="none" stroke="#45E3B8" stroke-width="2.6" stroke-linejoin="round"/>
-    <path d="M166 106 L302 94" fill="none" stroke="#45E3B8" stroke-width="2" opacity=".85"/>
-    <path d="M244 94 L302 134 L350 118" fill="none" stroke="#45E3B8" stroke-width="2" opacity=".7"/>
-    <path d="M210 160 L240 124 L302 134" fill="none" stroke="#5B8DEF" stroke-width="2" opacity=".85"/>
-    <path d="M248 130 L262 112 L280 114" fill="none" stroke="#21405c" stroke-width="2"/>
-    <g fill="none" stroke="#45E3B8" stroke-width="2.6">
-      <g class="spin"><circle cx="146" cy="160" r="30"/><path d="M146 130V190M116 160H176"/></g>
-      <g class="spin"><circle cx="374" cy="160" r="30"/><path d="M374 130V190M344 160H404"/></g>
-    </g>
-    <g fill="#0e1c2a" stroke="#45E3B8" stroke-width="1.6"><circle cx="146" cy="160" r="9"/><circle cx="374" cy="160" r="9"/></g>
-  </g>
-  <!-- <text x="28" y="188" font-family="IBM Plex Mono,monospace" font-size="10" letter-spacing=".06em" fill="#9fb1cb">chassis · suspension · powertrain</text> -->
-</svg>
-        </div>
+        <div class="thumb"><img src="assets/images/baja.png" alt="AI concept visualization for a BAJA SAE off-road vehicle" width="2048" height="1152" loading="lazy"><span class="mission-number">FILE 07</span><span class="image-note">AI concept visualization</span></div>
         <div class="card-body">
           <div class="kicker"><span>Competition · Vehicle Design</span><span class="yr">2019–22</span></div>
           <h3>BAJA SAE Off-Road Vehicle</h3>
@@ -1014,20 +830,14 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
     <div class="sec-head reveal">
       <div>
         <span class="eyebrow">Research</span>
-        <h2>Research across Detection, Control and UAV Design.</h2>
-        <p>From observer-based actuator fault detection to extended INDI flight control and the complete development of a hybrid VTOL aircraft.</p>
+        <h2>Research intelligence.</h2>
+        <p>From nonlinear rotorcraft simulation and flight-control comparison to actuator fault detection and hybrid VTOL development.</p>
       </div>
       <div class="tag">FAULT TOLERANCE · FLIGHT CONTROL · eVTOL</div>
     </div>
 
-    <div class="research">
-      <!-- <div class="pub reveal">
-        <span class="status"><span class="status-dot"></span>Master’s Thesis · Ongoing</span>
-        <h3>Extended INDI Controller and Observer Design for an eVTOL UAV</h3>
-        <div class="authors">A. Habib · Institute of Flight System Dynamics, Technical University of Munich</div>
-        <div class="venue">→ M.Sc. Aerospace · 2026</div>
-        <p>Design and validation of an extended incremental nonlinear dynamic inversion (INDI) controller with observer-based state and disturbance estimation for an eVTOL UAV. The thesis focuses on robust flight-control performance across the vehicle’s operating envelope.</p>
-      </div> -->
+    <div class="research"><div class="pub reveal"><span class="status">Master’s Thesis · December 2026</span><h3>Development and Validation of a Nonlinear Flight Mechanics Model of the AREA Intermeshing Rotor Drone</h3><div class="authors">Aqib Habib · Technical University of Munich</div><p>Development and validation of a nonlinear flight mechanics model for the AREA intermeshing-rotor drone. Six-degree-of-freedom dynamics, blade-element aerodynamics, coupled rotor inflow, periodic trim and PID, SCAS and LQR flight-control comparison in MATLAB and Simulink.</p><div class="card-links"><a href="projects/area-drone.html">Explore research →</a></div></div>
+
 
       <div class="pub reveal">
         <span class="status semester"><span class="status-dot"></span>Semester Thesis</span>
@@ -1080,7 +890,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
     <div class="sec-head reveal">
       <div>
         <span class="eyebrow">Experience</span>
-        <h2>Professional Engineering, Research and Student-Team Leadership.</h2>
+        <h2>Service record.</h2>
         <p>Organized into industry roles, research work and competitive engineering teams.</p>
       </div>
       <!-- <div class="tag">INDUSTRY · RESEARCH · TEAMS</div> -->
@@ -1103,7 +913,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <div class="exp-group-tag">Industry roles</div>
         </div>
 
-        <div class="timeline">
+        <div class="timeline"><div class="tl-item reveal"><div class="tl-when"><span class="now">Oct 2026 — Present</span><br>Germany</div><div class="tl-where"><div class="role">Aircraft Design and Certification Engineer</div><h3>Aircraft Design Certification GmbH</h3><ul><li>Aircraft design and certification work within EASA Part 21J and CS-23 frameworks.</li><li>Engineering analysis using OpenFOAM and Femap.</li></ul></div></div>
           <div class="tl-item reveal">
             <div class="tl-when"><span class="now">Oct 2025 — July 2026</span><br>Munich, DE</div>
             <div class="tl-where">
@@ -1133,7 +943,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
               </ul>
               <div class="evidence-links">
                 <a class="evidence-link" href="https://microbubbles.org/en/startseite-english/" target="_blank" rel="noopener">Company</a>
-                <a class="evidence-link" href="assets/documents/microbubbles-experience-letter.jpeg" target="_blank">Experience Letter</a>
+                <a class="evidence-link" href="assets/documents/microbubbles-experience-letter.png" target="_blank">Experience Letter</a>
               </div>
             </div>
           </div>
@@ -1172,16 +982,16 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <div class="exp-group-tag">Research &amp; Leadership</div>
         </div>
 
-        <div class="timeline">
+        <div class="timeline"><div class="tl-item reveal"><div class="tl-when">December 2026<br>Munich, DE</div><div class="tl-where"><div class="role">Research · Master’s Thesis</div><h3>AREA Flight Mechanics · TUM</h3><ul><li>Developed a nonlinear flight mechanics model of an intermeshing-rotor unmanned helicopter.</li><li>Studied periodic trim, stability, controller response and agreement with flight-test data.</li></ul><div class="evidence-links"><a class="evidence-link" href="projects/area-drone.html">Research dossier →</a></div></div></div>
           <div class="tl-item reveal">
-            <div class="tl-when"><span class="now">Jun 2025 — Now</span><br>Munich, DE</div>
+            <div class="tl-when"><span class="now">Jun 2025 — Mar 2026</span><br>Munich, DE</div>
             <div class="tl-where">
               <div class="role">Research · Semester Thesis</div>
               <h3>Institute of Flight System Dynamics, TUM</h3>
               <ul>
-                <li>Investigating observer-based actuator fault detection and diagnosis for quadrotors under uncertainty.</li>
-                <li>Implementing Luenberger, Thau, EKF and UKF residual-generation methods using analytical redundancy.</li>
-                <li>Evaluating partial and complete actuator loss-of-effectiveness scenarios for detection sensitivity, robustness and false-alarm behaviour.</li>
+                <li>Investigated observer-based actuator fault detection and diagnosis for quadrotors under uncertainty.</li>
+                <li>Implemented Luenberger, Thau, EKF and UKF residual-generation methods using analytical redundancy.</li>
+                <li>Evaluated partial and complete actuator loss-of-effectiveness scenarios for detection sensitivity, robustness and false-alarm behaviour.</li>
               </ul>
               <div class="evidence-links">
                 <a class="evidence-link" href="https://www.fsd.ed.tum.de/" target="_blank" rel="noopener">Lab</a>
@@ -1259,7 +1069,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
     <div class="sec-head reveal">
       <div>
         <span class="eyebrow">Education</span>
-        <h2>Academic foundation in Aerospace, Mechanical Engineering and Robotics.</h2>
+        <h2>Academic credentials.</h2>
         <p>My academic path combines flight systems, UAV design, mechanical design, mechatronics and computer science.</p>
       </div>
       <!-- <div class="tag">TUM · NUST</div> -->
@@ -1272,7 +1082,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/><path d="M22 10v6"/></svg>
           </span>
           <div>
-            <div class="edu-period">June 2024 — Present</div>
+            <div class="edu-period">June 2024 — December 2026</div>
             <h3>Technical University of Munich</h3>
             <p class="edu-degree">Master of Science · Aerospace Engineering</p>
           </div>
@@ -1282,7 +1092,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <span>Flight Control</span><span>State Estimation</span><span>Fault Detection</span><span>UAV Systems</span>
         </div>
         <ul class="edu-highlights">
-          <li>Conducting semester and master’s thesis research at the TUM Institute of Flight System Dynamics on observer-based actuator fault detection and fault-adaptive control for UAVs/eVTOL systems.</li>
+          <li>Thesis research spanning observer-based actuator fault detection and nonlinear flight mechanics modelling of the AREA intermeshing-rotor drone.</li>
           <li>Completed semester thesis work with a grade of 1.3, comparing Luenberger, Thau, EKF and UKF residual-generation methods under actuator faults and parametric uncertainty.</li>
           <li>Built a graduate profile spanning control systems, autonomous systems, UAV design, flight dynamics, estimation, and simulation-based validation.</li>
           <li>Contributed to HORYZN flight testing and control activities, including safety-critical control allocation and mission-oriented control strategies for a manned octacopter platform.</li>
@@ -1352,14 +1162,13 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
     <div class="sec-head reveal">
       <div>
         <span class="eyebrow">Achievements</span>
-        <h2>Recognition across Academics, and Engineering Competitions.</h2>
+        <h2>Distinctions &amp; field recognition.</h2>
         <p>Selected awards and competition outcomes highlighting academic excellence, leadership, technical execution and international exposure.</p>
       </div>
       <!-- <div class="tag">AWARDS · COMPETITIONS</div> -->
     </div>
 
-    <div class="achievements-grid">
-      <article class="achievement-card reveal">
+    <h3 class="award-category">Academic distinction</h3><div class="achievements-grid"><article class="achievement-card reveal">
         <div class="achievement-top">
           <span class="achievement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v4a5 5 0 0 1-10 0V4z"/><path d="M5 5H3v2a4 4 0 0 0 4 4"/><path d="M19 5h2v2a4 4 0 0 1-4 4"/></svg></span>
           <div><h3>Rector’s Gold Medal</h3><p class="achievement-meta">NUST · Academic Excellence</p></div>
@@ -1368,9 +1177,16 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         <div class="evidence-links">
           <a class="evidence-link" href="assets/documents/rectors-gold-medal.pdf" target="_blank">Award Certificate</a>
         </div>
-      </article>
-
-      <article class="achievement-card reveal">
+      </article><article class="achievement-card reveal">
+        <div class="achievement-top">
+          <span class="achievement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l4 8 6 2-6 2-4 8-4-8-6-2 6-2 4-8z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span>
+          <div><h3>High Achiever Recognition</h3><p class="achievement-meta">Merit · Leadership</p></div>
+        </div>
+        <p>Awarded High Achiever’s Certificate and Gold Medal of Merit for podium finishes and contributions to national and international engineering competitions.</p>
+        <div class="evidence-links">
+          <a class="evidence-link" href="assets/documents/high-achiever-certificate.png" target="_blank">Recognition Certificate</a>
+        </div>
+      </article></div><h3 class="award-category">Engineering competitions</h3><div class="achievements-grid"><article class="achievement-card reveal">
         <div class="achievement-top">
           <span class="achievement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 13h4l3-6h4l3 6h4"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><path d="M5 13h14"/></svg></span>
           <div><h3>BAJA SAE Arizona</h3><p class="achievement-meta">Team Markhor · USA</p></div>
@@ -1379,9 +1195,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         <div class="evidence-links">
           <a class="evidence-link" href="assets/documents/baja-sae-participation-certificate.pdf" target="_blank">Competition Certificate</a>
         </div>
-      </article>
-
-      <article class="achievement-card reveal">
+      </article><article class="achievement-card reveal">
         <div class="achievement-top">
           <span class="achievement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 7 7 .5-5.4 4.6 1.7 6.9L12 17.3 5.7 21l1.7-6.9L2 9.5 9 9l3-7z"/></svg></span>
           <div><h3>National Piston Cup Challenge</h3><p class="achievement-meta">Vehicle Competition</p></div>
@@ -1390,9 +1204,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         <div class="evidence-links">
           <a class="evidence-link" href="https://www.facebook.com/permalink.php/?story_fbid=307463848915401&id=100089553657899" target="_blank" rel="noopener">Award Evidence</a>
         </div>
-      </article>
-
-      <article class="achievement-card reveal">
+      </article><article class="achievement-card reveal">
         <div class="achievement-top">
           <span class="achievement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h10"/><path d="M16 17l2 2 4-5"/></svg></span>
           <div><h3>ASME CAD Competitions</h3><p class="achievement-meta">Speed CAD · TeamCAD</p></div>
@@ -1402,9 +1214,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <a class="evidence-link" href="assets/documents/asme-speed-cad-certificate.pdf" target="_blank">Speed CAD Certificate</a>
           <a class="evidence-link" href="assets/documents/asme-team-cad-certificate.pdf" target="_blank">Team CAD Certificate</a>
         </div>
-      </article>
-
-      <article class="achievement-card reveal">
+      </article><article class="achievement-card reveal">
         <div class="achievement-top">
           <span class="achievement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M2 12h20"/><path d="M4.9 4.9l14.2 14.2"/><path d="M19.1 4.9 4.9 19.1"/><circle cx="12" cy="12" r="4"/></svg></span>
           <div><h3>GoAero Challenge</h3><p class="achievement-meta">HORYZN · Flight Control</p></div>
@@ -1413,9 +1223,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         <div class="evidence-links">
           <a class="evidence-link" href="https://www.goaeroprize.com/stage-2-winning-teams/horyzn" target="_blank" rel="noopener">Challenge Announcements</a>
         </div>
-      </article>
-
-      <article class="achievement-card reveal">
+      </article></div><h3 class="award-category">Technical judging & service</h3><div class="achievements-grid"><article class="achievement-card reveal">
         <div class="achievement-top">
           <span class="achievement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v8h14v-8"/><path d="M9 18v-5h6v5"/><path d="M12 4v14"/></svg></span>
           <div><h3>IMechE UAS Challenge</h3><p class="achievement-meta">UAV Competition · Technical Judge</p></div>
@@ -1426,20 +1234,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
           <a class="evidence-link" href="assets/documents/uas-challenge-pakistan-2023.pdf" target="_blank">Certificate 2023</a>
 
         </div>
-      </article>
-
-      <article class="achievement-card reveal">
-        <div class="achievement-top">
-          <span class="achievement-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l4 8 6 2-6 2-4 8-4-8-6-2 6-2 4-8z"/><path d="M19 3v4"/><path d="M21 5h-4"/></svg></span>
-          <div><h3>High Achiever Recognition</h3><p class="achievement-meta">Merit · Leadership</p></div>
-        </div>
-        <p>Awarded High Achiever’s Certificate and Gold Medal of Merit for podium finishes and contributions to national and international engineering competitions.</p>
-        <div class="evidence-links">
-          <a class="evidence-link" href="assets/documents/high-achiever-certificate.png" target="_blank">Recognition Certificate</a>
-        </div>
-      </article>
-    </div>
-  </div>
+      </article></div></div>
 </section>
 
 <!-- ===================== SKILLS ===================== -->
@@ -1447,8 +1242,8 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
   <div class="wrap">
     <div class="sec-head reveal">
       <div>
-        <span class="eyebrow">Toolbox</span>
-        <h2>What I work with.</h2>
+        <span class="eyebrow">Capabilities</span>
+        <h2>Engineering toolkit.</h2>
         <p>Equally comfortable in a control loop, a CAD model and a ROS 2 node.</p>
       </div>
       <div class="tag">CONTROL · ESTIMATION · DESIGN</div>
@@ -1459,7 +1254,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         <h3>Control &amp; Estimation</h3>
         <ul>
           <li>Control Allocation</li><li>Control Systems</li><li>State Estimation</li><li>Path Planning</li>
-          
+
         </ul>
       </div>
       <div class="skill-col reveal">
@@ -1471,13 +1266,13 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
       <div class="skill-col reveal">
         <h3>Design &amp; Hardware</h3>
         <ul>
-          <li>CATIA V5</li><li>SolidWorks</li><li>ANSYS FEA</li><li>GD&amp;T</li><li>CFRP composites</li>
+          <li>CATIA V5</li><li>SolidWorks</li><li>ANSYS FEA</li><li>Femap</li><li>OpenFOAM</li><li>EASA Part 21J</li><li>CS-23</li><li>GD&amp;T</li><li>CFRP composites</li>
           <li>Additive mfg.</li><li>Pixhawk / ArduPilot</li><li>PX4</li>
         </ul>
       </div>
     </div>
   <br>
-    <span class="eyebrow">Certifications</span>
+    <span class="eyebrow">Certifications / verified documents</span>
     <div class="creds reveal">
        <span class="c"><a class="muted" href="assets/documents/easa-a1-a3-drone-license.pdf" target="_blank">EASA A1/A3 Drone Pilot</a></span>
        <span class="c"><a class="muted" href="assets/documents/aerial-robotics-certificate.pdf" target="_blank">Aerial Robotics Specialization</a></span>
@@ -1493,7 +1288,7 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
         <a class="evidence-link" href="assets/documents/portfolio-certificates.pdf" target="_blank">Certificates &amp; Awards</a>
         <a class="evidence-link" href="assets/documents/portfolio-courses.pdf" target="_blank">Course Certificates</a>
         <a class="evidence-link" href="assets/documents/bachelors-thesis-hybrid-vtol-uav.pdf" target="_blank">Bachelor’s Thesis</a>
-        <a class="evidence-link" href="assets/documents/microbubbles-experience-letter.jpeg" target="_blank">Microbubbles Letter</a>
+        <a class="evidence-link" href="assets/documents/microbubbles-experience-letter.png" target="_blank">Microbubbles Letter</a>
         <a class="evidence-link" href="assets/documents/turkish-aerospace-experience-letter.pdf" target="_blank">Turkish Aerospace Letter</a>
       </div>
     </div> -->
@@ -1603,28 +1398,28 @@ footer{border-top:1px solid var(--line-soft);padding:34px 0;color:var(--muted-2)
   <div class="wrap">
     <span class="eyebrow reveal" style="justify-content:center">Let's talk</span>
     <h2 class="reveal" style="margin-top:18px">Building something that has to fly — and stay flying?</h2>
-    <p class="reveal">I'm open to thesis collaborations, research roles, and UAV / robotics software or mechanical work. The fastest way to reach me is email.</p>
+    <p class="reveal">For engineering collaborations, aerospace research and conversations about aircraft design, flight dynamics or autonomy, reach me by email.</p>
     <div class="links-row reveal">
       <a class="link-btn" href="mailto:aqib.habib@tum.de">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
-        
+
       </a>
       <a class="link-btn" href="https://linkedin.com/in/aqibhabib" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.586 0H4.414A4.414 4.414 0 000 4.414v15.172A4.414 4.414 0 004.414 24h15.172A4.414 4.414 0 0024 19.586V4.414A4.414 4.414 0 0019.586 0zM8 18H5.5V9H8v9zm-1.25-10.2A1.45 1.45 0 118.2 6.35 1.45 1.45 0 016.75 7.8zM18.5 18H16v-4.7c0-1.2-.43-2-1.5-2A1.62 1.62 0 0013 13.2V18h-2.5V9H13v1.2a2.83 2.83 0 012.6-1.4c1.85 0 3.4 1.2 3.4 3.8V18z"/></svg>
-        
+
       </a>
       <a class="link-btn" href="https://github.com/Aqib-Habib" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 00-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.9 1.53 2.36 1.09 2.94.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 015 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0012 2z"/></svg>
-        
+
       </a>
       <a class="link-btn" href="https://scholar.google.com/citations?user=S0-50WsAAAAJ&hl=en" target="_blank" rel="noopener">
-        
+
     <svg viewBox="0 0 24 24" fill="currentColor">
       <path d="M12 3 1 9l11 6 11-6-11-6zm0 8.7L5.2 8 12 4.3 18.8 8 12 11.7z"/>
       <path d="M5 11.5V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-4.5l-7 3.8-7-3.8z"/>
       <path d="M21 10.5v5h2v-6.1l-2 1.1z"/>
     </svg>
-         
+
       </a>
       <a class="link-btn" href="https://www.behance.net/aqibhabib" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 7h-7V5h7v2zm-1.726 10c-.442 1.297-2.029 3-5.101 3-3.074 0-5.564-1.729-5.564-5.675 0-3.91 2.325-5.92 5.466-5.92 3.082 0 4.964 1.782 5.375 4.426.078.506.109 1.188.095 2.14H13.96c.13 3.211 3.483 3.312 4.588 2.029h1.726zm-7.07-4h4.738c-.099-1.598-1.184-2.155-2.356-2.155-1.265 0-1.967.659-2.382 2.155zM5.736 16.97c1.5 0 2.464-.673 2.464-2.058 0-1.422-.834-1.962-2.482-1.962H3.5v4.02h2.236zm-.18-5.77c1.4 0 2.296-.612 2.296-1.86 0-1.252-.93-1.71-2.314-1.71H3.5v3.57h2.056zM1 5.5h5.297c2.94 0 4.703 1.045 4.703 3.33 0 1.395-.668 2.337-1.96 2.86 1.65.45 2.5 1.67 2.5 3.36C11.54 17.79 9.39 19 6.49 19H1V5.5z"/></svg>
@@ -1664,120 +1459,6 @@ if(!reduced){
   document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
 }
 
-/* ---------- live observer / fault-detection scope ---------- */
-(function(){
-  const cv = document.getElementById('scope');
-  const ctx = cv.getContext('2d');
-  const ledTxt = document.getElementById('tlmLedTxt');
-  const led = document.getElementById('tlmLed');
-  const residEl = document.getElementById('tlmResid');
-  const statusEl = document.getElementById('tlmStatus');
-  const css = getComputedStyle(document.documentElement);
-  const SIG = css.getPropertyValue('--signal').trim() || '#45E3B8';
-  const ALERT = css.getPropertyValue('--alert').trim() || '#FFB454';
-  const GRID = '#15273a';
-  const THRESH = 0.55;
-
-  let W=520, H=230, dpr=1;
-  function resize(){
-    dpr = Math.min(window.devicePixelRatio||1, 2);
-    const r = cv.getBoundingClientRect();
-    W = r.width||520; H = r.height||230;
-    cv.width = W*dpr; cv.height = H*dpr;
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-  }
-  window.addEventListener('resize', resize); resize();
-
-  const N = 130;
-  const buf = new Array(N).fill(0).map(()=>0.04+Math.random()*0.03);
-  // fault state machine
-  let state='idle', timer= 90+Math.random()*120, fault=0, detected=false, latency=null, sinceFault=0;
-
-  function pushSample(){
-    let noise = 0.035 + Math.random()*0.03;
-    if(state==='idle'){
-      timer--;
-      if(timer<=0){ state='ramp'; fault=0; detected=false; latency=null; sinceFault=0; }
-    } else if(state==='ramp'){
-      sinceFault++;
-      fault += (0.95 - fault)*0.12 + (Math.random()-.5)*0.02; // ramp toward ~0.95
-      if(!detected && (fault+noise) > THRESH){ detected=true; latency=sinceFault; }
-      if(fault>0.85){ state='hold'; timer=28; }
-    } else if(state==='hold'){
-      timer--; if(timer<=0){ state='recover'; }
-    } else if(state==='recover'){
-      fault += (0 - fault)*0.10;
-      if(fault<0.06){ state='idle'; fault=0; detected=false; timer=120+Math.random()*150; }
-    }
-    let v = noise + fault;
-    buf.push(v); buf.shift();
-    return v;
-  }
-
-  function draw(){
-    const v = pushSample();
-    ctx.clearRect(0,0,W,H);
-    const padL=10, padR=10, padT=14, padB=14;
-    const plotW=W-padL-padR, plotH=H-padT-padB;
-    const yFor = val => padT + plotH*(1 - Math.min(val,1.15)/1.15);
-
-    // grid
-    ctx.strokeStyle=GRID; ctx.lineWidth=1;
-    for(let i=0;i<=4;i++){ const y=padT+plotH*i/4; ctx.beginPath(); ctx.moveTo(padL,y); ctx.lineTo(W-padR,y); ctx.stroke(); }
-    for(let i=0;i<=6;i++){ const x=padL+plotW*i/6; ctx.beginPath(); ctx.moveTo(x,padT); ctx.lineTo(x,H-padB); ctx.stroke(); }
-
-    // threshold
-    const ty=yFor(THRESH);
-    ctx.strokeStyle=ALERT; ctx.globalAlpha=.75; ctx.setLineDash([5,5]); ctx.lineWidth=1.2;
-    ctx.beginPath(); ctx.moveTo(padL,ty); ctx.lineTo(W-padR,ty); ctx.stroke();
-    ctx.setLineDash([]); ctx.globalAlpha=1;
-    ctx.fillStyle=ALERT; ctx.font='10px "IBM Plex Mono", monospace'; ctx.globalAlpha=.8;
-    ctx.fillText('threshold', padL+4, ty-5); ctx.globalAlpha=1;
-
-    const alerting = v > THRESH;
-    const col = alerting ? ALERT : SIG;
-
-    // fill under curve
-    ctx.beginPath();
-    buf.forEach((val,i)=>{ const x=padL+plotW*i/(N-1), y=yFor(val); i?ctx.lineTo(x,y):ctx.moveTo(x,y); });
-    ctx.lineTo(padL+plotW, H-padB); ctx.lineTo(padL, H-padB); ctx.closePath();
-    const grad = ctx.createLinearGradient(0,padT,0,H-padB);
-    grad.addColorStop(0, (alerting?ALERT:SIG)+'33'); grad.addColorStop(1, (alerting?ALERT:SIG)+'00');
-    ctx.fillStyle=grad; ctx.fill();
-
-    // residual trace
-    ctx.beginPath();
-    buf.forEach((val,i)=>{ const x=padL+plotW*i/(N-1), y=yFor(val); i?ctx.lineTo(x,y):ctx.moveTo(x,y); });
-    ctx.strokeStyle=col; ctx.lineWidth=2.2; ctx.lineJoin='round'; ctx.shadowColor=col; ctx.shadowBlur=8; ctx.stroke(); ctx.shadowBlur=0;
-
-    // leading dot
-    const lx=padL+plotW, ly=yFor(buf[N-1]);
-    ctx.beginPath(); ctx.arc(lx-1,ly,3.2,0,Math.PI*2); ctx.fillStyle=col; ctx.fill();
-
-    // readouts
-    residEl.textContent = v.toFixed(2);
-    residEl.className = 'v ' + (alerting?'alert':'sig');
-    if(detected && (state==='ramp'||state==='hold')){
-      led.classList.add('alert'); ledTxt.textContent='FAULT DETECTED';
-      statusEl.textContent = 'detected · '+latency+' steps'; statusEl.className='v alert';
-    } else {
-      led.classList.remove('alert'); ledTxt.textContent='NOMINAL';
-      statusEl.textContent = 'healthy'; statusEl.className='v';
-    }
-
-    raf = requestAnimationFrame(()=>setTimeout(draw, 42));
-  }
-
-  let raf;
-  if(reduced){
-    // static representative frame: a fault that has crossed the threshold
-    for(let i=0;i<40;i++) pushSample();
-    state='ramp'; for(let i=0;i<25;i++) pushSample();
-    draw(); cancelAnimationFrame(raf);
-  } else {
-    draw();
-  }
-})();
 </script>
 </body>
 </html>
